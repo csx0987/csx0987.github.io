@@ -10,7 +10,7 @@
     
     
     
-    <title>archive_a | csx的小博客</title>
+    <title>Emacs学习day1 | csx的小博客</title>
     <link href="”“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -93,7 +93,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -166,19 +166,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="">csx的小博客</a>
         >
-        <span>归档</span>
+        <span>Emacs学习day1</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/emacs/">emacs</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-16
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -186,35 +201,62 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-01-16
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/emacs/">emacs</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2019年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/15/格式测试/">一些格式测试</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/15/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <h1 id="学习emacs-tutorial"><a href="#学习emacs-tutorial" class="headerlink" title="学习emacs tutorial"></a>学习emacs tutorial</h1><p>emacs tutorial中有一些常用的emacs操作，学习emacs中的一些函数操作之前先把一些基本的光标操作过一遍。</p>
+<h2 id="打开emacs-tutorial的方式"><a href="#打开emacs-tutorial的方式" class="headerlink" title="打开emacs tutorial的方式"></a>打开emacs tutorial的方式</h2><ol>
+<li>之间点击emacs tutorial</li>
+<li>输入C-h t</li>
+</ol>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="文件（buffer）操作"><a href="#文件（buffer）操作" class="headerlink" title="文件（buffer）操作"></a>文件（buffer）操作</h3><ul>
+<li><code>C-x C-c</code> 关闭emacs（不保存）</li>
+<li><code>C-x C-f</code> 打开文件</li>
+<li><code>C-x C-s</code> 保存</li>
+</ul>
+<h3 id="光标操作"><a href="#光标操作" class="headerlink" title="光标操作"></a>光标操作</h3><ul>
+<li><code>C-f</code> 为前移一个字符， <code>f</code> 代表 forward。</li>
+<li><code>C-b</code> 为后移一个字符， <code>b</code> 代表 backward。</li>
+<li><code>C-p</code> 为上移至前一行， <code>p</code> 代表 previous。</li>
+<li><code>C-n</code> 为上移至下一行， <code>n</code> 代表 next。</li>
+<li><code>C-a</code> 为移至行首， <code>a</code> 代表 ahead。</li>
+<li><code>C-e</code> 为移至行尾， <code>e</code> 代表 end。</li>
+</ul>
+<h3 id="帮助快捷键"><a href="#帮助快捷键" class="headerlink" title="帮助快捷键"></a>帮助快捷键</h3><ul>
+<li><code>C-h k</code> 寻找快捷键的帮助信息</li>
+<li><code>C-h v</code> 寻找变量的帮助信息</li>
+<li><code>C-h f</code> 寻找函数的帮助信息</li>
+</ul>
+<h1 id="Elisp"><a href="#Elisp" class="headerlink" title="Elisp"></a>Elisp</h1><p>学习链接：<a href="https://learnxinyminutes.com/docs/elisp/" target="_blank" rel="noopener">https://learnxinyminutes.com/docs/elisp/</a></p>
+<h1 id="编辑器配置"><a href="#编辑器配置" class="headerlink" title="编辑器配置"></a>编辑器配置</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>emacs的配置文件默认路径是~/.emacs.d/init.el</p>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>配置直接用了Spacemacs Rocks中day1的配置，链接：<a href="http://book.emacs-china.org/" target="_blank" rel="noopener">http://book.emacs-china.org/</a></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode</span></span><br><span class="line">(<span class="name">tool-bar-mode</span> <span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 关闭文件滑动控件</span></span><br><span class="line">(<span class="name">scroll-bar-mode</span> <span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 显示行号</span></span><br><span class="line">(<span class="name">global-linum-mode</span> <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 更改光标的样式（不能生效，解决方案见第二集）</span></span><br><span class="line">(<span class="name">setq</span> cursor-type 'bar)</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 关闭启动帮助画面</span></span><br><span class="line">(<span class="name">setq</span> inhibit-splash-screen <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 关闭缩进 (第二天中被去除)</span></span><br><span class="line"><span class="comment">;; (electric-indent-mode -1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;; 更改显示字体大小 16pt</span></span><br><span class="line"><span class="comment">;; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs</span></span><br><span class="line">(<span class="name">set-face-attribute</span> 'default <span class="literal">nil</span> <span class="symbol">:height</span> <span class="number">160</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 快速打开配置文件</span></span><br><span class="line">(<span class="name">defun</span> open-init-file()</span><br><span class="line">  (<span class="name">interactive</span>)</span><br><span class="line">  (<span class="name">find-file</span> <span class="string">"~/.emacs.d/init.el"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 这一行代码，将函数 open-init-file 绑定到 &lt;f2&gt; 键上</span></span><br><span class="line">(<span class="name">global-set-key</span> (<span class="name">kbd</span> <span class="string">"&lt;f2&gt;"</span>) 'open-init-file)</span><br></pre></td></tr></table></figure>
+<h2 id="mode的区别"><a href="#mode的区别" class="headerlink" title="mode的区别"></a>mode的区别</h2><p>emacs中有两种mode</p>
+<ol>
+<li>major mode</li>
+<li>minor mode</li>
+</ol>
+<p>其中major mode一个文件只能有一个，minor mode能有[0, n]个</p>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -330,17 +372,17 @@
 
                 
                 <li>
-                    <a href="/archives/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/01/16/Emacs学习day1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/01/16/Emacs学习day1/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/01/16/Emacs学习day1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -348,9 +390,9 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/emacs/" style="font-size: 15.150305623811871px;" class="tag-cloud-link">emacs</a>
+    <a href="/tags/emacs/" style="font-size: 12.722098322324479px;" class="tag-cloud-link">emacs</a>
     
-    <a href="/tags/测试/" style="font-size: 13.878435428396497px;" class="tag-cloud-link">测试</a>
+    <a href="/tags/测试/" style="font-size: 18.53336590188719px;" class="tag-cloud-link">测试</a>
     
 </div>
                 
