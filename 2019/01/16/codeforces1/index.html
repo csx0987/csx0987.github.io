@@ -10,7 +10,7 @@
     
     
     
-    <title>categories: 测试页面 | csx的小博客</title>
+    <title>codeforces1 | csx的小博客</title>
     <link href="”“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -178,19 +178,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-category">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="">csx的小博客</a>
         >
-        <span>目录</span>
+        <span>codeforces1</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/categories/测试页面/index.html">测试页面</a>
+                <a href="/2019/01/16/codeforces1/">codeforces1</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/数学/">数学</a>, 
+                
+                <a href="/tags/codeforces/">codeforces</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-16
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -198,21 +215,49 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/categories/测试页面/index.html">测试页面</a>
+                    <a href="/2019/01/16/codeforces1/">codeforces1</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-01-16
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/数学/">数学</a>, 
+                
+                <a href="/tags/codeforces/">codeforces</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/01/15/格式测试/">一些格式测试</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <h1 id="A-Theatre-Square"><a href="#A-Theatre-Square" class="headerlink" title="A. Theatre Square"></a>A. Theatre Square</h1><p>Theatre Square in the capital city of Berland has a rectangular shape with the size <em>n</em> × <em>m</em> meters. On the occasion of the city’s anniversary, a decision was taken to pave the Square with square granite flagstones. Each flagstone is of the size <em>a</em> × <em>a</em>.</p>
+<p>What is the least number of flagstones needed to pave the Square? It’s allowed to cover the surface larger than the Theatre Square, but the Square has to be covered. It’s not allowed to break the flagstones. The sides of flagstones should be parallel to the sides of the Square.</p>
+<p>Input</p>
+<p>The input contains three positive integer numbers in the first line: <em>n</em>,  <em>m</em> and <em>a</em> (1 ≤  <em>n</em>, <em>m</em>, <em>a</em> ≤ 109).</p>
+<p>Output</p>
+<p>Write the needed number of flagstones.</p>
+<p>Examples</p>
+<p>input</p>
+<ul>
+<li>6 6 4</li>
+</ul>
+<p>output</p>
+<ul>
+<li>4</li>
+</ul>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p> <em>n</em> × <em>m</em> 的剧院，要用 <em>a</em> ×<em>a</em> 的石板铺满，石板要和剧院的边界平行，石板不能切割，但铺盖的范围可以超过剧院的边界。求最少用多少块石板。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从剧院的左上角开始铺，直到刚好铺满一行或刚好超过，可知每行铺$ \left \lceil \frac{m}{a} \right \rceil $，同理每列铺$\left \lceil \frac{n}{a} \right \rceil$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line">ll n, m, a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// freopen("in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">// freopen("out.txt", "w", stdout);</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld %lld %lld"</span>, &amp;n, &amp;m, &amp;a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, (ll)<span class="built_in">ceil</span>(<span class="number">1.0</span> * n / a) * (ll)<span class="built_in">ceil</span>(<span class="number">1.0</span> * m / a));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -340,17 +385,17 @@
 
                 
                 <li>
-                    <a href="/categories/测试页面/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/01/16/codeforces1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/categories/测试页面/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/01/16/codeforces1/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/categories/测试页面/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/01/16/codeforces1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -358,13 +403,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数学/" style="font-size: 18.975358353321056px;" class="tag-cloud-link">数学</a>
+    <a href="/tags/数学/" style="font-size: 15.971190254178763px;" class="tag-cloud-link">数学</a>
     
-    <a href="/tags/emacs/" style="font-size: 13.120586302960422px;" class="tag-cloud-link">emacs</a>
+    <a href="/tags/emacs/" style="font-size: 13.265695915800904px;" class="tag-cloud-link">emacs</a>
     
-    <a href="/tags/测试/" style="font-size: 13.460345345176602px;" class="tag-cloud-link">测试</a>
+    <a href="/tags/测试/" style="font-size: 15.830006313336881px;" class="tag-cloud-link">测试</a>
     
-    <a href="/tags/codeforces/" style="font-size: 17.228756332559236px;" class="tag-cloud-link">codeforces</a>
+    <a href="/tags/codeforces/" style="font-size: 16.097452467210463px;" class="tag-cloud-link">codeforces</a>
     
 </div>
                 
