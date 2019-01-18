@@ -111,15 +111,15 @@
                         
                         
                         <li>
+                            <a href="/categories/算法/">算法</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/工具/">工具</a>
                         </li>
                         
                         <li>
                             <a href="/categories/测试页面/">测试页面</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/算法/">算法</a>
                         </li>
                         
                         
@@ -140,15 +140,15 @@
                         
                         
                         <li>
-                            <a href="/tags/emacs/">emacs</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/测试/">测试</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/codeforces/">codeforces</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/数学/">数学</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/模拟/">模拟</a>
                         </li>
                         
                         
@@ -202,7 +202,9 @@
                 
                 <a href="/tags/数学/">数学</a>, 
                 
-                <a href="/tags/模拟/">模拟</a>
+                <a href="/tags/模拟/">模拟</a>, 
+                
+                <a href="/tags/计算几何/">计算几何</a>
                 
             </span>
             
@@ -231,7 +233,9 @@
                 
                 <a href="/tags/数学/">数学</a>, 
                 
-                <a href="/tags/模拟/">模拟</a>
+                <a href="/tags/模拟/">模拟</a>, 
+                
+                <a href="/tags/计算几何/">计算几何</a>
                 
                 
                 
@@ -281,6 +285,29 @@
 <h2 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h2><p>对输入的格式进行转换，将(R, C)的形式转换成A-Z的列表示+数字的行表示，将A-Z的列表示+数字的行表示转换成(R,C)的形式</p>
 <h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>纯模拟题，先扫描输入的字符串，看有多少个数字部分，1，2分别对应两种格式，创造数字字符串转换成整型的函数，A-Z的字符串转换成整型的函数，整型转换成A-Z的字符串函数</p>
 <h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_N = <span class="number">1000010</span>;</span><br><span class="line"><span class="keyword">char</span> s[MAX_N];</span><br><span class="line"><span class="keyword">int</span> len, n, num, p;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str2num</span><span class="params">(<span class="keyword">char</span> ss[], <span class="keyword">int</span> &amp;p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (ss[p] != <span class="string">'\0'</span> &amp;&amp; <span class="built_in">isdigit</span>(ss[p])) &#123;</span><br><span class="line">        ans *= <span class="number">10</span>;</span><br><span class="line">        ans += ss[p] - <span class="string">'0'</span>;</span><br><span class="line">        p++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">num2ABC</span><span class="params">(<span class="keyword">int</span> dig)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp[<span class="number">10000</span>]; <span class="keyword">int</span> tlen = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (dig) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = dig % <span class="number">26</span>;</span><br><span class="line">        <span class="keyword">if</span> (t == <span class="number">0</span>) &#123;</span><br><span class="line">            tmp[tlen++] = <span class="number">26</span>; dig = dig / <span class="number">26</span> - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            tmp[tlen++] = t;</span><br><span class="line">            dig = dig / <span class="number">26</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = tlen<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>, <span class="string">'A'</span>+tmp[i]<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ABC2num</span><span class="params">(<span class="keyword">char</span> ss[], <span class="keyword">int</span> &amp;p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (ss[p] != <span class="string">'\0'</span> &amp;&amp; <span class="built_in">isalpha</span>(ss[p])) &#123;</span><br><span class="line">        ans *= <span class="number">26</span>;</span><br><span class="line">        ans += ss[p] - <span class="string">'A'</span> + <span class="number">1</span>;</span><br><span class="line">        p++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// freopen("in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">// freopen("out.txt", "w", stdout);</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">        len = <span class="built_in">strlen</span>(s);</span><br><span class="line">        num = <span class="number">0</span>; p = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isalpha</span>(s[i<span class="number">-1</span>]) &amp;&amp; <span class="built_in">isdigit</span>(s[i])) &#123;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">1</span>) &#123;</span><br><span class="line">            p = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> b = ABC2num(s, p);</span><br><span class="line">            <span class="keyword">int</span> a = str2num(s, p);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"R%dC%d\n"</span>, a, b);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num == <span class="number">2</span>) &#123;</span><br><span class="line">            p = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> a = str2num(s, p); p++;</span><br><span class="line">            <span class="keyword">int</span> b = str2num(s, p);</span><br><span class="line">            num2ABC(b);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="C-Ancient-Berland-Circus"><a href="#C-Ancient-Berland-Circus" class="headerlink" title="C. Ancient Berland Circus"></a>C. Ancient Berland Circus</h1><p>Nowadays all circuses in Berland have a round arena with diameter 13 meters, but in the past things were different.</p>
+<p>In Ancient Berland arenas in circuses were shaped as a regular (equiangular) polygon, the size and the number of angles could vary from one circus to another. In each corner of the arena there was a special pillar, and the rope strung between the pillars marked the arena edges.</p>
+<p>Recently the scientists from Berland have discovered the remains of the ancient circus arena. They found only three pillars, the others were destroyed by the time.</p>
+<p>You are given the coordinates of these three pillars. Find out what is the smallest area that the arena could have.</p>
+<p>Input</p>
+<p>The input file consists of three lines, each of them contains a pair of numbers –– coordinates of the pillar. Any coordinate doesn’t exceed 1000 by absolute value, and is given with at most six digits after decimal point.</p>
+<p>Output</p>
+<p>Output the smallest possible area of the ancient arena. This number should be accurate to at least 6 digits after the decimal point. It’s guaranteed that the number of angles in the optimal polygon is not larger than 100.</p>
+<p>Examples</p>
+<p>input</p>
+<ul>
+<li>0.000000 0.000000</li>
+<li>1.000000 1.000000</li>
+<li>0.000000 1.000000</li>
+</ul>
+<p>output</p>
+<ul>
+<li>1.00000000</li>
+</ul>
+<h2 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h2><p>给出正多边形的三个顶点，求此多边形的最小面积</p>
+<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>3个顶点可以确定此多边形的中心就是这个三角形的外心，易知正n边形中n越小则面积越小，求三角形外心以及三个顶点中的两个组成圆心角的最大公约数，再用2PI除以其最大公约数就可以得到n</p>
+<h2 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> EPS = <span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lf %lf"</span>, &amp;x, &amp;y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dis</span><span class="params">(Point p1, Point p2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((p1.x-p2.x)*(p1.x-p2.x) + (p1.y-p2.y)*(p1.y-p2.y));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">gcd</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> y &gt; EPS ? gcd(y, x-<span class="built_in">floor</span>(x/y)*y) : x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getTheta</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b, <span class="keyword">double</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">acos</span>((a * a + b * b - c * c) / (<span class="number">2</span> * a * b));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Point p1, p2, p3;</span><br><span class="line"><span class="keyword">double</span> d1, d2, d3, p, s, r, theta1, theta2, theta3, n, theta, ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// freopen("in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">// freopen("out.txt", "w", stdout);</span></span><br><span class="line">    p1.read(); p2.read(); p3.read();</span><br><span class="line">    d1 = dis(p1, p2);</span><br><span class="line">    d2 = dis(p1, p3);</span><br><span class="line">    d3 = dis(p2, p3);</span><br><span class="line">    p = (d1 + d2 + d3) / <span class="number">2.0</span>;</span><br><span class="line">    s = <span class="built_in">sqrt</span>(p * (p-d1) * (p-d2) * (p - d3));</span><br><span class="line">    r = (d1 * d2 * d3) / (<span class="number">4.0</span> * s);</span><br><span class="line">    theta1 = getTheta(r, r, d3);</span><br><span class="line">    theta2 = getTheta(r, r, d2);</span><br><span class="line">    theta3 = <span class="number">2</span> * PI - theta1 - theta2;</span><br><span class="line">    theta = (gcd(theta1, gcd(theta2, theta3)));</span><br><span class="line">    n = PI / theta;</span><br><span class="line">    ans = n * r * r * <span class="built_in">sin</span>(theta);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.6lf\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 </article>
@@ -380,6 +407,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/01/16/codeforces1/">codeforces1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
                 </span>
             </li>
@@ -393,12 +426,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/01/15/格式测试/">一些格式测试</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/01/16/codeforces1/">codeforces1</a>
                 </span>
             </li>
             
@@ -431,15 +458,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/emacs/" style="font-size: 17.09455148263084px;" class="tag-cloud-link">emacs</a>
+    <a href="/tags/codeforces/" style="font-size: 9.089695099444281px;" class="tag-cloud-link">codeforces</a>
     
-    <a href="/tags/测试/" style="font-size: 15.986426638766421px;" class="tag-cloud-link">测试</a>
+    <a href="/tags/数学/" style="font-size: 8.116214797018348px;" class="tag-cloud-link">数学</a>
     
-    <a href="/tags/codeforces/" style="font-size: 14.377042237624853px;" class="tag-cloud-link">codeforces</a>
+    <a href="/tags/模拟/" style="font-size: 14.474828777394741px;" class="tag-cloud-link">模拟</a>
     
-    <a href="/tags/数学/" style="font-size: 8.906110240690488px;" class="tag-cloud-link">数学</a>
+    <a href="/tags/emacs/" style="font-size: 18.064308867704867px;" class="tag-cloud-link">emacs</a>
     
-    <a href="/tags/模拟/" style="font-size: 10.441002294500706px;" class="tag-cloud-link">模拟</a>
+    <a href="/tags/测试/" style="font-size: 15.78249546726705px;" class="tag-cloud-link">测试</a>
+    
+    <a href="/tags/计算几何/" style="font-size: 9.634534225953356px;" class="tag-cloud-link">计算几何</a>
     
 </div>
                 
@@ -494,7 +523,22 @@
 <!-- 回到顶端 -->
 <div id="gal-gotop">
     <i class="fa fa-angle-up"></i>
-</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 <script src="/js/activate-power-mode.js"></script>
 <script>
