@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: 数学 | csx的小博客</title>
+    <title>codeforces2 | csx的小博客</title>
     <link href="”“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -178,19 +178,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="">csx的小博客</a>
         >
-        <span>标签</span>
+        <span>codeforces2</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/数学/index.html">数学</a>
+                <a href="/2019/01/19/codeforces2/">codeforces2</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/模拟/">模拟</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-19
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -198,21 +213,60 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/数学/index.html">数学</a>
+                    <a href="/2019/01/19/codeforces2/">codeforces2</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-01-19
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/模拟/">模拟</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/01/16/codeforces1/">codeforces1</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <h1 id="A-Winner"><a href="#A-Winner" class="headerlink" title="A. Winner"></a>A. Winner</h1><p>The winner of the card game popular in Berland “Berlogging” is determined according to the following rules. If at the end of the game there is only one player with the maximum number of points, he is the winner. The situation becomes more difficult if the number of such players is more than one. During each round a player gains or loses a particular number of points. In the course of the game the number of points is registered in the line “name score”, where name is a player’s name, and score is the number of points gained in this round, which is an integer number. If score is negative, this means that the player has lost in the round. So, if two or more players have the maximum number of points (say, it equals to <em>m</em>) at the end of the game, than wins the one <em>of them</em> who scored at least <em>m</em> points first. Initially each player has 0 points. It’s guaranteed that at the end of the game at least one player has a positive number of points.</p>
+<p>Input</p>
+<p>The first line contains an integer number <em>n</em> (1  ≤  <em>n</em>  ≤  1000), <em>n</em> is the number of rounds played. Then follow <em>n</em> lines, containing the information about the rounds in “name score” format in chronological order, where name is a string of lower-case Latin letters with the length from 1 to 32, and score is an integer number between -1000 and 1000, inclusive.</p>
+<p>Output</p>
+<p>Print the name of the winner.</p>
+<p>Examples</p>
+<p>input</p>
+<ul>
+<li>3</li>
+<li>mike 3</li>
+<li>andrew 5</li>
+<li>mike 2</li>
+</ul>
+<p>output</p>
+<ul>
+<li>andrew</li>
+</ul>
+<p>input</p>
+<ul>
+<li>3</li>
+<li>andrew 3</li>
+<li>andrew 2</li>
+<li>mike 5</li>
+</ul>
+<p>output</p>
+<ul>
+<li>andrew</li>
+</ul>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给出n组人名，分数，求最后分数最高的人，如果有多人，就输出最早达到或超过最高分的人。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>n不大，就记录输入的顺序，先求一遍最后分，得到最大分，最后模拟一遍输入，求到最先得到或超过最高分的人。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">string</span> s[MAX];</span><br><span class="line"><span class="keyword">int</span> cnt[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s[i] &gt;&gt; cnt[i];</span><br><span class="line">        mp[s[i]] += cnt[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ma = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = mp.begin(); it != mp.end(); it++) &#123;</span><br><span class="line">        ma = max(ma, it-&gt;second);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; mp2;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        mp2[s[i]] += cnt[i];</span><br><span class="line">        <span class="keyword">if</span> (mp[s[i]] == ma &amp;&amp; mp2[s[i]] &gt;= ma) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; s[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -364,17 +418,17 @@
 
                 
                 <li>
-                    <a href="/tags/数学/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/01/19/codeforces2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/tags/数学/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/01/19/codeforces2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/tags/数学/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/01/19/codeforces2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -382,17 +436,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/emacs/" style="font-size: 14.580456314117875px;" class="tag-cloud-link">emacs</a>
+    <a href="/tags/emacs/" style="font-size: 13.52772674071578px;" class="tag-cloud-link">emacs</a>
     
-    <a href="/tags/codeforces/" style="font-size: 19.237203189791398px;" class="tag-cloud-link">codeforces</a>
+    <a href="/tags/codeforces/" style="font-size: 14.556121370825569px;" class="tag-cloud-link">codeforces</a>
     
-    <a href="/tags/数学/" style="font-size: 12.270643814337472px;" class="tag-cloud-link">数学</a>
+    <a href="/tags/数学/" style="font-size: 8.298015519837616px;" class="tag-cloud-link">数学</a>
     
-    <a href="/tags/模拟/" style="font-size: 13.604565237608156px;" class="tag-cloud-link">模拟</a>
+    <a href="/tags/模拟/" style="font-size: 19.041755385678297px;" class="tag-cloud-link">模拟</a>
     
-    <a href="/tags/计算几何/" style="font-size: 9.548691781418228px;" class="tag-cloud-link">计算几何</a>
+    <a href="/tags/计算几何/" style="font-size: 15.074859754306576px;" class="tag-cloud-link">计算几何</a>
     
-    <a href="/tags/测试/" style="font-size: 15.707147089023916px;" class="tag-cloud-link">测试</a>
+    <a href="/tags/测试/" style="font-size: 9.52382028131779px;" class="tag-cloud-link">测试</a>
     
 </div>
                 
