@@ -115,11 +115,11 @@
                         </li>
                         
                         <li>
-                            <a href="/categories/测试页面/">测试页面</a>
+                            <a href="/categories/算法/">算法</a>
                         </li>
                         
                         <li>
-                            <a href="/categories/算法/">算法</a>
+                            <a href="/categories/测试页面/">测试页面</a>
                         </li>
                         
                         
@@ -144,11 +144,11 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/测试/">测试</a>
+                            <a href="/tags/codeforces/">codeforces</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/codeforces/">codeforces</a>
+                            <a href="/tags/模拟/">模拟</a>
                         </li>
                         
                         
@@ -236,6 +236,23 @@
 <h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">init.el 入口</span><br><span class="line">custom.el 放customize自动生成的代码</span><br><span class="line">init-better-defaults.el 放一些修改默认配置的设置</span><br><span class="line">init-keybindings.el 放一些快捷键的绑定</span><br><span class="line">init-packages.el 放一些下载的插件的配置</span><br><span class="line">init-ui.el 放一些修改显示的配置</span><br><span class="line">init-org.el 放一些修改org mode的配置</span><br></pre></td></tr></table></figure>
 <h1 id="使用git维护emacs的配置"><a href="#使用git维护emacs的配置" class="headerlink" title="使用git维护emacs的配置"></a>使用git维护emacs的配置</h1><h2 id="git的基本操作"><a href="#git的基本操作" class="headerlink" title="git的基本操作"></a>git的基本操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add</span><br><span class="line">git commit -m <span class="string">""</span></span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line">git reset --hard 版本号</span><br></pre></td></tr></table></figure>
 <h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p>emacs中的auto-save-list不需要维护，所以在.gitignore中添加</p>
+<h1 id="Dired-Mode"><a href="#Dired-Mode" class="headerlink" title="Dired Mode"></a>Dired Mode</h1><p>使用 <code>C-x d</code> 就可以进入 Dired Mode，这个模式类似于图形界面系统中的资源管理器。你 可以在其中查看文件和目录的详细信息，对他们进行各种操作，甚至复制粘贴缓冲区中的内 容。下面是一些常用的操作（下面的所有键均需在 Dired Mode 下使用），</p>
+<ul>
+<li><code>+</code> 创建目录</li>
+<li><code>g</code> 刷新目录</li>
+<li><code>C</code> 拷贝</li>
+<li><code>D</code> 删除</li>
+<li><code>R</code> 重命名</li>
+<li><code>d</code> 标记删除</li>
+<li><code>u</code> 取消标记</li>
+<li><code>x</code> 执行所有的标记</li>
+</ul>
+<p>删除，拷贝目录时，会询问是否递归删除，拷贝。使用以下配置默认递归</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">setq</span> dired-recursive-deletes 'always)</span><br><span class="line">(<span class="name">setq</span> dired-recursive-copies 'always)</span><br></pre></td></tr></table></figure>
+<p>每次查找目录时会生成新的buffer，使用以下配置使用唯一缓冲区</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">put</span> 'dired-find-alternate-file 'disabled <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 主动加载 Dired Mode</span></span><br><span class="line"><span class="comment">;; (require 'dired)</span></span><br><span class="line"><span class="comment">;; (defined-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;; 延迟加载</span></span><br><span class="line">(<span class="name">with-eval-after-load</span> 'dired</span><br><span class="line">    (<span class="name">define-key</span> dired-mode-map (<span class="name">kbd</span> <span class="string">"RET"</span>) 'dired-find-alternate-file))</span><br></pre></td></tr></table></figure>
+<p>启用 <code>dired-x</code> 可以让每一次进入 Dired 模式时，使用新的快捷键 <code>C-x C-j</code> 就可以进 入当前文件夹的所在的路径。</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">require</span> 'dired-x)</span><br></pre></td></tr></table></figure>
 
     </div>
 </article>
@@ -377,6 +394,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/01/19/codeforces2/">codeforces2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/01/15/格式测试/">一些格式测试</a>
                 </span>
             </li>
@@ -384,12 +407,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/01/16/codeforces1/">codeforces1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/01/19/codeforces2/">codeforces2</a>
                 </span>
             </li>
             
@@ -422,17 +439,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/emacs/" style="font-size: 19.506963158755937px;" class="tag-cloud-link">emacs</a>
+    <a href="/tags/emacs/" style="font-size: 12.11756710211026px;" class="tag-cloud-link">emacs</a>
     
-    <a href="/tags/测试/" style="font-size: 14.493007743825496px;" class="tag-cloud-link">测试</a>
+    <a href="/tags/codeforces/" style="font-size: 11.145965629564952px;" class="tag-cloud-link">codeforces</a>
     
-    <a href="/tags/codeforces/" style="font-size: 10.169540045045224px;" class="tag-cloud-link">codeforces</a>
+    <a href="/tags/模拟/" style="font-size: 15.258324835947523px;" class="tag-cloud-link">模拟</a>
     
-    <a href="/tags/数学/" style="font-size: 16.780814398174385px;" class="tag-cloud-link">数学</a>
+    <a href="/tags/测试/" style="font-size: 14.1722251928634px;" class="tag-cloud-link">测试</a>
     
-    <a href="/tags/模拟/" style="font-size: 8.605936758774956px;" class="tag-cloud-link">模拟</a>
+    <a href="/tags/数学/" style="font-size: 14.009384724784388px;" class="tag-cloud-link">数学</a>
     
-    <a href="/tags/计算几何/" style="font-size: 18.61567336337466px;" class="tag-cloud-link">计算几何</a>
+    <a href="/tags/计算几何/" style="font-size: 8.928653575593913px;" class="tag-cloud-link">计算几何</a>
     
 </div>
                 
