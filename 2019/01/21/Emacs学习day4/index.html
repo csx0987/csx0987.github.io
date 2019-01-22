@@ -10,7 +10,7 @@
     
     
     
-    <title>Emacs学习day2 | csx的小博客</title>
+    <title>Emacs学习day4 | csx的小博客</title>
     <link href="”“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -184,13 +184,13 @@
         <i class="fa fa-home"></i>
         <a href="">csx的小博客</a>
         >
-        <span>Emacs学习day2</span>
+        <span>Emacs学习day4</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/01/18/Emacs学习day2/">Emacs学习day2</a>
+                <a href="/2019/01/21/Emacs学习day4/">Emacs学习day4</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -203,7 +203,7 @@
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-01-18
+                <i class="fa fa-calendar"></i> 2019-01-21
             </span>
             
         </div>
@@ -213,11 +213,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/01/18/Emacs学习day2/">Emacs学习day2</a>
+                    <a href="/2019/01/21/Emacs学习day4/">Emacs学习day4</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-01-18
+                <i class="fa fa-calendar"></i> 2019-01-21
             </p>
             <p>
                 
@@ -231,19 +231,9 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="简单的分屏操作"><a href="#简单的分屏操作" class="headerlink" title="简单的分屏操作"></a>简单的分屏操作</h1><ul>
-<li><code>C-x 1</code> 仅保留当前窗口</li>
-<li><code>C-x 2</code> 将当前窗口分到上边</li>
-<li><code>C-x 3</code> 将当前窗口分到右边</li>
-</ul>
-<p>更多操作：<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Split-Window.html" target="_blank" rel="noopener">https://www.gnu.org/software/emacs/manual/html_node/emacs/Split-Window.html</a></p>
-<h1 id="Emacs插件源"><a href="#Emacs插件源" class="headerlink" title="Emacs插件源"></a>Emacs插件源</h1><p>使用<a href="https://melpa.org/" target="_blank" rel="noopener">MELPA</a>源</p>
-<p>一些简单的配置，使用SpaceEmacs Rocks day2</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">when</span> (<span class="name">&gt;=</span> emacs-major-version <span class="number">24</span>)</span><br><span class="line">     (<span class="name">require</span> 'package)</span><br><span class="line">     (<span class="name">package-initialize</span>)</span><br><span class="line">     (<span class="name">setq</span> package-archives '((<span class="string">"gnu"</span>   . <span class="string">"http://elpa.emacs-china.org/gnu/"</span>)</span><br><span class="line">		      (<span class="string">"melpa"</span> . <span class="string">"http://elpa.emacs-china.org/melpa/"</span>))))</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">;; cl - Common Lisp Extension</span></span><br><span class="line"> (<span class="name">require</span> 'cl)</span><br><span class="line"></span><br><span class="line"> <span class="comment">;; Add Packages</span></span><br><span class="line"> (<span class="name">defvar</span> my/packages '(</span><br><span class="line">		;; --- Auto-completion ---</span><br><span class="line">		company</span><br><span class="line">		;; --- Better Editor ---</span><br><span class="line">		hungry-delete</span><br><span class="line">		swiper</span><br><span class="line">		counsel</span><br><span class="line">		smartparens</span><br><span class="line">		;; --- Major Mode ---</span><br><span class="line">		js2-mode</span><br><span class="line">		;; --- Minor Mode ---</span><br><span class="line">		nodejs-repl</span><br><span class="line">		exec-path-from-shell</span><br><span class="line">		;; --- Themes ---</span><br><span class="line">		monokai-theme</span><br><span class="line">		;; solarized-theme</span><br><span class="line">		) <span class="string">"Default packages"</span>)</span><br><span class="line"></span><br><span class="line"> (<span class="name">setq</span> package-selected-packages my/packages)</span><br><span class="line"></span><br><span class="line"> (<span class="name">defun</span> my/packages-installed-p ()</span><br><span class="line">     (<span class="name">loop</span> for pkg in my/packages</span><br><span class="line">	   when (<span class="name">not</span> (<span class="name">package-installed-p</span> pkg)) do (<span class="name">return</span> <span class="literal">nil</span>)</span><br><span class="line">	   finally (<span class="name">return</span> <span class="literal">t</span>)))</span><br><span class="line"></span><br><span class="line"> (<span class="name">unless</span> (<span class="name">my/packages-installed-p</span>)</span><br><span class="line">     (<span class="name">message</span> <span class="string">"%s"</span> <span class="string">"Refreshing package database..."</span>)</span><br><span class="line">     (<span class="name">package-refresh-contents</span>)</span><br><span class="line">     (<span class="name">dolist</span> (<span class="name">pkg</span> my/packages)</span><br><span class="line">       (<span class="name">when</span> (<span class="name">not</span> (<span class="name">package-installed-p</span> pkg))</span><br><span class="line">	 (<span class="name">package-install</span> pkg))))</span><br><span class="line"></span><br><span class="line"> <span class="comment">;; Find Executable Path on OS X</span></span><br><span class="line"> (<span class="name">when</span> (<span class="name">memq</span> window-system '(mac ns))</span><br><span class="line">   (<span class="name">exec-path-from-shell-initialize</span>))</span><br></pre></td></tr></table></figure>
-<p>一些其它的配置</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; 高亮当前行</span></span><br><span class="line">(<span class="name">global-hl-line-mode</span> <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 默认全屏</span></span><br><span class="line">(<span class="name">setq</span> initial-frame-alist (<span class="name">quote</span> ((fullscreen . maximized))))</span><br><span class="line"></span><br><span class="line"><span class="comment">;; 匹配括号</span></span><br><span class="line">(<span class="name">add-hook</span> 'emacs-lisp-mode-hook 'show-paren-mode)</span><br></pre></td></tr></table></figure>
-<h1 id="auto-mode-list匹配Major-Mode"><a href="#auto-mode-list匹配Major-Mode" class="headerlink" title="auto-mode-list匹配Major Mode"></a>auto-mode-list匹配Major Mode</h1><p>使用正则表达式匹配Major Mode</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">setq</span> auto-mode-alist</span><br><span class="line">  (<span class="name">append</span></span><br><span class="line">   <span class="comment">;; File name (within directory) starts with a dot.</span></span><br><span class="line">   '((<span class="string">"/\\.[^/]*\\'"</span> . fundamental-mode)</span><br><span class="line">     ;; File name has no dot.</span><br><span class="line">     (<span class="string">"/[^\\./]*\\'"</span> . fundamental-mode)</span><br><span class="line">     ;; File name ends in ‘.C’.</span><br><span class="line">     (<span class="string">"\\.C\\'"</span> . c++-mode))</span><br><span class="line">   auto-mode-alist))</span><br></pre></td></tr></table></figure>
+        <h1 id="Spaceemacs"><a href="#Spaceemacs" class="headerlink" title="Spaceemacs"></a>Spaceemacs</h1><h2 id="Spaceemacs的安装方法"><a href="#Spaceemacs的安装方法" class="headerlink" title="Spaceemacs的安装方法"></a>Spaceemacs的安装方法</h2><p>直接从github上clone就好</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:syl20bnr/spacemacs.git ~/.emacs.d</span><br></pre></td></tr></table></figure>
+<h2 id="Spacemacs的一些简单配置"><a href="#Spacemacs的一些简单配置" class="headerlink" title="Spacemacs的一些简单配置"></a>Spacemacs的一些简单配置</h2><p>配置其它源<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">setq-default</span></span><br><span class="line">   configuration-layer--elpa-archives</span><br><span class="line">   '((<span class="string">"melpa-cn"</span> . <span class="string">"https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"</span>)</span><br><span class="line">     (<span class="string">"gnu-cn"</span> . <span class="string">"https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"</span>)</span><br><span class="line">     (<span class="string">"org-cn"</span> . <span class="string">"https://mirrors.tuna.tsinghua.edu.cn/elpa/org/"</span>)))</span><br></pre></td></tr></table></figure></p>
 
     </div>
 </article>
@@ -424,17 +414,17 @@
 
                 
                 <li>
-                    <a href="/2019/01/18/Emacs学习day2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/01/21/Emacs学习day4/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/01/18/Emacs学习day2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/01/21/Emacs学习day4/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/01/18/Emacs学习day2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/01/21/Emacs学习day4/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -442,17 +432,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/emacs/" style="font-size: 14.434088198484421px;" class="tag-cloud-link">emacs</a>
+    <a href="/tags/emacs/" style="font-size: 15.015165805428884px;" class="tag-cloud-link">emacs</a>
     
-    <a href="/tags/codeforces/" style="font-size: 13.769581089076262px;" class="tag-cloud-link">codeforces</a>
+    <a href="/tags/codeforces/" style="font-size: 13.073328502851183px;" class="tag-cloud-link">codeforces</a>
     
-    <a href="/tags/数学/" style="font-size: 16.40242349584009px;" class="tag-cloud-link">数学</a>
+    <a href="/tags/数学/" style="font-size: 12.603090445235132px;" class="tag-cloud-link">数学</a>
     
-    <a href="/tags/模拟/" style="font-size: 10.365321261108603px;" class="tag-cloud-link">模拟</a>
+    <a href="/tags/模拟/" style="font-size: 14.587051011796087px;" class="tag-cloud-link">模拟</a>
     
-    <a href="/tags/计算几何/" style="font-size: 9.210074712922241px;" class="tag-cloud-link">计算几何</a>
+    <a href="/tags/计算几何/" style="font-size: 11.119255820345987px;" class="tag-cloud-link">计算几何</a>
     
-    <a href="/tags/测试/" style="font-size: 12.909683498082627px;" class="tag-cloud-link">测试</a>
+    <a href="/tags/测试/" style="font-size: 15.507021823384468px;" class="tag-cloud-link">测试</a>
     
 </div>
                 
