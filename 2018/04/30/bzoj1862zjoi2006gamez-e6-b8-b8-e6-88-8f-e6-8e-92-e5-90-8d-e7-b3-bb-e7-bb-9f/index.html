@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="csx">
+    
+    
+    
+    
+    
+    
+    <title>BZOJ1862[Zjoi2006]GameZ游戏排名系统 | csx的小博客</title>
+    <link href="”“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/csx.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head></html>
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">csx的小博客</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/未分类/">未分类</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/训练/">训练</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/工具/">工具</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/BZOJ/">BZOJ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/splay/">splay</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/数据结构/">数据结构</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">csx的小博客</a>
+        >
+        <span>BZOJ1862[Zjoi2006]GameZ游戏排名系统</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/04/30/bzoj1862zjoi2006gamez-e6-b8-b8-e6-88-8f-e6-8e-92-e5-90-8d-e7-b3-bb-e7-bb-9f/">BZOJ1862[Zjoi2006]GameZ游戏排名系统</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/BZOJ/">BZOJ</a>, 
+                
+                <a href="/tags/splay/">splay</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-04-30
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/04/30/bzoj1862zjoi2006gamez-e6-b8-b8-e6-88-8f-e6-8e-92-e5-90-8d-e7-b3-bb-e7-bb-9f/">BZOJ1862[Zjoi2006]GameZ游戏排名系统</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-04-30
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/BZOJ/">BZOJ</a>, 
+                
+                <a href="/tags/splay/">splay</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>GameZ为他们最新推出的游戏开通了一个网站。世界各地的玩家都可以将自己的游戏得分上传到网站上。这样就可以看到自己在世界上的排名。得分越高，排名就越靠前。当两个玩家的名次相同时，先上传记录者优先。由于新游戏的火爆，网站服务器已经难堪重负。为此GameZ雇用了你来帮他们重新开发一套新的核心。排名系统通常要应付三种请求：上传一条新的得分记录、查询某个玩家的当前排名以及返回某个区段内的排名记录。当某个玩家上传自己最新的得分记录时，他原有的得分记录会被删除。为了减轻服务器负担，在返回某个区段内的排名记录时，最多返回10条记录。</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行是一个整数n（n&gt;=10）表示请求总数目。接下来n行每行包含了一个请求。请求的具体格式如下： +Name Score 上传最新得分记录。Name表示玩家名字，由大写英文字母组成，不超过10个字符。Score为最多8位的正整数。 ?Name 查询玩家排名。该玩家的得分记录必定已经在前面上传。 ?Index 返回自第Index名开始的最多10名玩家名字。Index必定合法，即不小于1，也不大于当前有记录的玩家总数。输入文件总大小不超过2M。 NOTE：用C++的fstream读大规模数据的效率较低</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>对于每条查询请求，输出相应结果。对于?Name格式的请求，应输出一个整数表示该玩家当前的排名。对于?Index格式的请求，应在一行中依次输出从第Index名开始的最多10名玩家姓名，用一个空格分隔。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><p>20<br>+ADAM 1000000<br>+BOB 1000000<br>+TOM 2000000<br>+CATHY 10000000<br>?TOM<br>?1<br>+DAM 100000<br>+BOB 1200000<br>+ADAM 900000<br>+FRANK 12340000<br>+LEO 9000000<br>+KAINE 9000000<br>+GRACE 8000000<br>+WALT 9000000<br>+SANDY 8000000<br>+MICK 9000000<br>+JACK 7320000<br>?2<br>?5<br>?KAINE</p>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>2<br>CATHY TOM ADAM BOB<br>CATHY LEO KAINE WALT MICK GRACE SANDY JACK TOM BOB<br>WALT MICK GRACE SANDY JACK TOM BOB ADAM DAM<br>4</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>平衡树的模板题，但是对我而言写起来还是比较困难的。。用map来映射姓名和平衡树的节点，平衡树用splay实现。其中用了点小技巧求[l, r]排名的人的时候如果结点存的是成绩和时间的话树的结构和答案对不上，所以成绩我们存负的这样结点的排序和答案就对上了。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXM = <span class="number">25000</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">size_t</span> <span class="title">size</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">struct</span> <span class="title">MemoryPool</span> &#123;</span></span><br><span class="line">    T buf[size], *tail, *end;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> T *<span class="title">alloc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (top) <span class="keyword">return</span> st[--top];</span><br><span class="line">        <span class="keyword">if</span> (tail != end) <span class="keyword">return</span> tail++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> T;</span><br><span class="line">    &#125;</span><br><span class="line">    MemoryPool() : tail(buf), end(buf+size), top(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    <span class="keyword">int</span> top;</span><br><span class="line">    T *st[size];</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">recycle</span><span class="params">(T *x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (top &gt; size) <span class="keyword">delete</span> x;</span><br><span class="line">        <span class="keyword">else</span> st[top++] = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Splay</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">        Node *c[<span class="number">2</span>], *fa, **root;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, Node *&gt;::iterator it;</span><br><span class="line">        pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; x;</span><br><span class="line">        <span class="keyword">int</span> size;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> Node *<span class="title">init</span><span class="params">(Node **root, Node *fa, <span class="keyword">const</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &amp;x,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">const</span> <span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, Node *&gt;::iterator it)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>-&gt;fa = fa, <span class="keyword">this</span>-&gt;root = root, <span class="keyword">this</span>-&gt;it = it, <span class="keyword">this</span>-&gt;x = x, <span class="keyword">this</span>-&gt;size = <span class="number">0</span>, c[<span class="number">0</span>] = c[<span class="number">1</span>] = <span class="literal">NULL</span>, <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">recycle</span><span class="params">(MemoryPool&lt;Node, MAXM&gt; &amp;pool)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (c[<span class="number">0</span>]) c[<span class="number">0</span>]-&gt;recycle(pool), pool.recycle(c[<span class="number">0</span>]), c[<span class="number">0</span>] = <span class="literal">NULL</span>;</span><br><span class="line">            <span class="keyword">if</span> (c[<span class="number">1</span>]) c[<span class="number">1</span>]-&gt;recycle(pool), pool.recycle(c[<span class="number">1</span>]), c[<span class="number">1</span>] = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">maintain</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            size = (c[<span class="number">0</span>] ? c[<span class="number">0</span>]-&gt;size : <span class="number">0</span>) + (c[<span class="number">1</span>] ? c[<span class="number">1</span>]-&gt;size : <span class="number">0</span>) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">relation</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span> == fa-&gt;c[<span class="number">1</span>]; &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            Node *o = fa;</span><br><span class="line">            <span class="keyword">int</span> x = relation();</span><br><span class="line">            <span class="keyword">if</span> (o-&gt;fa) o-&gt;fa-&gt;c[o-&gt;relation()] = <span class="keyword">this</span>;</span><br><span class="line">            fa = o-&gt;fa, o-&gt;c[x] = c[x^<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (c[x^<span class="number">1</span>]) c[x^<span class="number">1</span>]-&gt;fa = o;</span><br><span class="line">            c[x^<span class="number">1</span>] = o, o-&gt;fa = <span class="keyword">this</span>, o-&gt;maintain(), maintain();</span><br><span class="line">            <span class="keyword">if</span> (!fa) *root = <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> Node *<span class="title">splay</span><span class="params">(Node *t = <span class="literal">NULL</span>)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span> (fa != t) &#123;</span><br><span class="line">                <span class="keyword">if</span> (fa-&gt;fa == t) rotate();</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (relation() == fa-&gt;relation()) fa-&gt;rotate(), rotate();</span><br><span class="line">                <span class="keyword">else</span> rotate(), rotate();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> Node *<span class="title">pre</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            Node *v = splay()-&gt;c[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">while</span> (v-&gt;c[<span class="number">1</span>]) v = v-&gt;c[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> Node *<span class="title">suc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            Node *v = splay()-&gt;c[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">while</span> (v-&gt;c[<span class="number">0</span>]) v = v-&gt;c[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">rank</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> c[<span class="number">0</span>] ? c[<span class="number">0</span>]-&gt;size : <span class="number">0</span>; &#125;</span><br><span class="line">    &#125; *root;</span><br><span class="line">    MemoryPool&lt;Node, MAXM&gt; pool;</span><br><span class="line">    Splay(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, Node *&gt;::iterator null) : root(<span class="literal">NULL</span>) &#123; insert(<span class="built_in">std</span>::make_pair(INT_MIN, INT_MIN), null), insert(<span class="built_in">std</span>::make_pair(INT_MAX, INT_MAX), null); &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Node *<span class="title">insert</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &amp;x, <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, Node *&gt;::iterator it)</span> </span>&#123;</span><br><span class="line">        Node **v = &amp;root, *fa = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">while</span> (*v) fa = *v, fa-&gt;size++, v = &amp;fa-&gt;c[x &gt; fa-&gt;x];</span><br><span class="line">        <span class="keyword">return</span> *v = pool.alloc()-&gt;init(&amp;root, fa, x, it), (*v)-&gt;splay();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">erase</span><span class="params">(Node *v)</span> </span>&#123;</span><br><span class="line">        Node *l = v-&gt;pre(), *r = v-&gt;suc();</span><br><span class="line">        r-&gt;splay(), l-&gt;splay(r);</span><br><span class="line">        v-&gt;recycle(pool), pool.recycle(v), v = <span class="literal">NULL</span>, l-&gt;c[<span class="number">1</span>] = <span class="literal">NULL</span>, l-&gt;size--, r-&gt;size--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Node *<span class="title">select</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = k;</span><br><span class="line">        Node *v = root;</span><br><span class="line">        <span class="keyword">while</span> (v-&gt;rank() != x) &#123;</span><br><span class="line">            <span class="keyword">if</span> (v-&gt;rank() &gt; x) v = v-&gt;c[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">else</span> x -= v-&gt;rank() + <span class="number">1</span>, v = v-&gt;c[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> v-&gt;splay();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Node *<span class="title">select</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        Node *pre = select(l - <span class="number">1</span>), *suc = select(r + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> suc-&gt;splay(), pre-&gt;splay(suc)-&gt;c[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> root-&gt;size - <span class="number">2</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, Splay::Node *&gt; mp;</span><br><span class="line"><span class="function">Splay <span class="title">splay</span><span class="params">(mp.end())</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(Splay::Node *v, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> *&gt; &amp;vec)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!v) <span class="keyword">return</span>;</span><br><span class="line">    dfs(v-&gt;c[<span class="number">0</span>], vec);</span><br><span class="line">    <span class="keyword">if</span> (v-&gt;it != mp.end()) vec.push_back(&amp;v-&gt;it-&gt;first);</span><br><span class="line">    dfs(v-&gt;c[<span class="number">1</span>], vec);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">parseInt</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">string</span>::const_iterator it = s.begin(); it != s.end(); it++) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + ((*it) ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//freopen("in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        <span class="built_in">string</span> cmd;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; cmd;</span><br><span class="line">        <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'+'</span>) &#123;</span><br><span class="line">            <span class="built_in">string</span> name = cmd.substr(<span class="number">1</span>, cmd.length()<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">int</span> x;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">            <span class="built_in">map</span>&lt;<span class="built_in">string</span>, Splay::Node *&gt;::iterator it = mp.find(name);</span><br><span class="line">            <span class="keyword">if</span> (it != mp.end()) splay.erase(it-&gt;second);</span><br><span class="line">            <span class="keyword">else</span> it = mp.insert(make_pair(name, <span class="keyword">static_cast</span>&lt;Splay::Node *&gt;(<span class="literal">NULL</span>))).first;</span><br><span class="line">            it -&gt; second = splay.insert(make_pair(-x, -n), it);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd[<span class="number">0</span>] == <span class="string">'?'</span>) &#123;</span><br><span class="line">            <span class="built_in">string</span> arg = cmd.substr(<span class="number">1</span>, cmd.length()<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">if</span> (arg[<span class="number">0</span>] &gt;= <span class="string">'0'</span> &amp;&amp; arg[<span class="number">0</span>] &lt;= <span class="string">'9'</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = parseInt(arg);</span><br><span class="line">                Splay::Node *v = splay.select(x, <span class="built_in">std</span>::min(splay.size(), x + <span class="number">10</span> - <span class="number">1</span>));</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> *&gt; vec;</span><br><span class="line">                dfs(v, vec);</span><br><span class="line">                <span class="keyword">for</span> (<span class="built_in">vector</span>&lt;<span class="keyword">const</span> <span class="built_in">string</span> *&gt;::iterator it = vec.begin(); it != vec.end(); it++)</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; **it &lt;&lt; (it == vec.end() - <span class="number">1</span> ? <span class="string">'\n'</span> : <span class="string">' '</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                Splay::Node *v = mp[arg];</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; v-&gt;splay()-&gt;rank() &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            csx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/csx.png" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/21/Emacs学习day4/">Emacs学习day4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/20/Emacs学习day3/">Emacs学习day3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/19/codeforces2/">codeforces2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/18/Emacs学习day2/">Emacs学习day2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/codeforces1/">codeforces1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/格式测试/">一些格式测试</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/spoj-dquery/">SPOJ-DQUERY</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/hdu6278just-h-index/">HDU6278Just h-index</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/12/bzoj1002-e8-bd-ae-e7-8a-b6-e7-97-85-e6-af-92/">BZOJ1002[FJOI]轮状病毒</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/27/bzoj1007hnoi2008-e6-b0-b4-e5-b9-b3-e5-8f-af-e8-a7-81-e7-9b-b4-e7-ba-bf/">BZOJ1007[HNOI2008]水平可见直线</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/27/bzoj1067scoi2007-e9-99-8d-e9-9b-a8-e9-87-8f/">BZOJ1067[SCOI2007]降雨量</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/29/bzoj1503noi2004-e9-83-81-e9-97-b7-e7-9a-84-e5-87-ba-e7-ba-b3-e5-91-98/">BZOJ1503[NOI2004]郁闷的出纳员</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/08/bzoj1818cqoi2010-e5-86-85-e9-83-a8-e7-99-bd-e7-82-b9/">BZOJ1818[Cqoi2010]内部白点</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/08/bzoj2330scoi2011-e7-b3-96-e6-9e-9c/">BZOJ2330[SCOI2011]糖果</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/03/06/e5-bc-80-e5-a7-8b-e8-ae-b0-e5-bd-95-e5-8d-9a-e5-ae-a2-e5-95-a6/">开始记录博客啦</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/hdu6278just-h-index/">HDU6278Just h-index</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/13/hnoi2005-e7-8b-a1-e7-8c-be-e7-9a-84-e5-95-86-e4-ba-ba/">BZOJ1202[HNOI2005]狡猾的商人</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/19/codeforces2/">codeforces2</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2018/04/30/bzoj1862zjoi2006gamez-e6-b8-b8-e6-88-8f-e6-8e-92-e5-90-8d-e7-b3-bb-e7-bb-9f/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2018/04/30/bzoj1862zjoi2006gamez-e6-b8-b8-e6-88-8f-e6-8e-92-e5-90-8d-e7-b3-bb-e7-bb-9f/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2018/04/30/bzoj1862zjoi2006gamez-e6-b8-b8-e6-88-8f-e6-8e-92-e5-90-8d-e7-b3-bb-e7-bb-9f/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/BZOJ/" style="font-size: 12.781797194528174px;" class="tag-cloud-link">BZOJ</a>
+    
+    <a href="/tags/splay/" style="font-size: 9.879532392688976px;" class="tag-cloud-link">splay</a>
+    
+    <a href="/tags/数据结构/" style="font-size: 12.306545801717254px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/kruskal/" style="font-size: 9.3196523931933px;" class="tag-cloud-link">kruskal</a>
+    
+    <a href="/tags/mst/" style="font-size: 12.94796988987422px;" class="tag-cloud-link">mst</a>
+    
+    <a href="/tags/emacs/" style="font-size: 16.843914608790534px;" class="tag-cloud-link">emacs</a>
+    
+    <a href="/tags/dp/" style="font-size: 15.47013774236325px;" class="tag-cloud-link">dp</a>
+    
+    <a href="/tags/并查集/" style="font-size: 14.675296392182476px;" class="tag-cloud-link">并查集</a>
+    
+    <a href="/tags/离线处理/" style="font-size: 12.088581519608379px;" class="tag-cloud-link">离线处理</a>
+    
+    <a href="/tags/递推/" style="font-size: 12.22343714802762px;" class="tag-cloud-link">递推</a>
+    
+    <a href="/tags/高精度/" style="font-size: 18.547485682901964px;" class="tag-cloud-link">高精度</a>
+    
+    <a href="/tags/spfa/" style="font-size: 8.058269733043018px;" class="tag-cloud-link">spfa</a>
+    
+    <a href="/tags/区间dp/" style="font-size: 15.920889438164604px;" class="tag-cloud-link">区间dp</a>
+    
+    <a href="/tags/图论/" style="font-size: 18.206770146442437px;" class="tag-cloud-link">图论</a>
+    
+    <a href="/tags/二进制/" style="font-size: 16.771822637211933px;" class="tag-cloud-link">二进制</a>
+    
+    <a href="/tags/单调栈/" style="font-size: 17.291910300361554px;" class="tag-cloud-link">单调栈</a>
+    
+    <a href="/tags/计算几何/" style="font-size: 11.172768962402333px;" class="tag-cloud-link">计算几何</a>
+    
+    <a href="/tags/高斯消元/" style="font-size: 14.522487285613668px;" class="tag-cloud-link">高斯消元</a>
+    
+    <a href="/tags/dfs/" style="font-size: 9.110526543887476px;" class="tag-cloud-link">dfs</a>
+    
+    <a href="/tags/树形dp/" style="font-size: 12.92593208382396px;" class="tag-cloud-link">树形dp</a>
+    
+    <a href="/tags/数论/" style="font-size: 16.044541636287562px;" class="tag-cloud-link">数论</a>
+    
+    <a href="/tags/欧几里得算法/" style="font-size: 16.547822203281985px;" class="tag-cloud-link">欧几里得算法</a>
+    
+    <a href="/tags/bfs/" style="font-size: 17.262981184938745px;" class="tag-cloud-link">bfs</a>
+    
+    <a href="/tags/hash/" style="font-size: 9.97498691102285px;" class="tag-cloud-link">hash</a>
+    
+    <a href="/tags/最小费用流/" style="font-size: 16.704518133350597px;" class="tag-cloud-link">最小费用流</a>
+    
+    <a href="/tags/网络流/" style="font-size: 19.38871154174007px;" class="tag-cloud-link">网络流</a>
+    
+    <a href="/tags/dinic/" style="font-size: 17.748231241036812px;" class="tag-cloud-link">dinic</a>
+    
+    <a href="/tags/RMQ/" style="font-size: 12.12439586629966px;" class="tag-cloud-link">RMQ</a>
+    
+    <a href="/tags/st表/" style="font-size: 19.432130826655893px;" class="tag-cloud-link">st表</a>
+    
+    <a href="/tags/二分/" style="font-size: 16.195004067490217px;" class="tag-cloud-link">二分</a>
+    
+    <a href="/tags/概率dp/" style="font-size: 9.474816386720311px;" class="tag-cloud-link">概率dp</a>
+    
+    <a href="/tags/状压dp/" style="font-size: 17.050690462194517px;" class="tag-cloud-link">状压dp</a>
+    
+    <a href="/tags/nim游戏/" style="font-size: 16.72178755760194px;" class="tag-cloud-link">nim游戏</a>
+    
+    <a href="/tags/sg函数/" style="font-size: 12.892654798377368px;" class="tag-cloud-link">sg函数</a>
+    
+    <a href="/tags/博弈论/" style="font-size: 14.706971817059394px;" class="tag-cloud-link">博弈论</a>
+    
+    <a href="/tags/暴力/" style="font-size: 14.557505236650185px;" class="tag-cloud-link">暴力</a>
+    
+    <a href="/tags/前缀和/" style="font-size: 9.212659019720185px;" class="tag-cloud-link">前缀和</a>
+    
+    <a href="/tags/思维/" style="font-size: 8.719869825280156px;" class="tag-cloud-link">思维</a>
+    
+    <a href="/tags/最大流/" style="font-size: 19.527968399545493px;" class="tag-cloud-link">最大流</a>
+    
+    <a href="/tags/最小割/" style="font-size: 17.82480346571183px;" class="tag-cloud-link">最小割</a>
+    
+    <a href="/tags/扩展欧几里得/" style="font-size: 12.318056845470803px;" class="tag-cloud-link">扩展欧几里得</a>
+    
+    <a href="/tags/floyd/" style="font-size: 11.31358208332258px;" class="tag-cloud-link">floyd</a>
+    
+    <a href="/tags/枚举/" style="font-size: 11.49345974281779px;" class="tag-cloud-link">枚举</a>
+    
+    <a href="/tags/bit/" style="font-size: 15.652769509164411px;" class="tag-cloud-link">bit</a>
+    
+    <a href="/tags/扫描线/" style="font-size: 19.436475259531953px;" class="tag-cloud-link">扫描线</a>
+    
+    <a href="/tags/离散化/" style="font-size: 12.634761463847592px;" class="tag-cloud-link">离散化</a>
+    
+    <a href="/tags/贪心/" style="font-size: 9.591042830970373px;" class="tag-cloud-link">贪心</a>
+    
+    <a href="/tags/欧拉函数/" style="font-size: 17.526315154219763px;" class="tag-cloud-link">欧拉函数</a>
+    
+    <a href="/tags/差分约束系统/" style="font-size: 16.68325875425606px;" class="tag-cloud-link">差分约束系统</a>
+    
+    <a href="/tags/线段树/" style="font-size: 15.962845922584828px;" class="tag-cloud-link">线段树</a>
+    
+    <a href="/tags/treap/" style="font-size: 14.525915929895433px;" class="tag-cloud-link">treap</a>
+    
+    <a href="/tags/打表/" style="font-size: 13.30818397917557px;" class="tag-cloud-link">打表</a>
+    
+    <a href="/tags/找规律/" style="font-size: 18.317003256585004px;" class="tag-cloud-link">找规律</a>
+    
+    <a href="/tags/树状数组/" style="font-size: 16.54837953428757px;" class="tag-cloud-link">树状数组</a>
+    
+    <a href="/tags/脑洞/" style="font-size: 13.954307145455783px;" class="tag-cloud-link">脑洞</a>
+    
+    <a href="/tags/构造/" style="font-size: 15.625499016399193px;" class="tag-cloud-link">构造</a>
+    
+    <a href="/tags/kmp/" style="font-size: 14.234143809791654px;" class="tag-cloud-link">kmp</a>
+    
+    <a href="/tags/模拟/" style="font-size: 18.059169400164723px;" class="tag-cloud-link">模拟</a>
+    
+    <a href="/tags/模板/" style="font-size: 14.463736460164132px;" class="tag-cloud-link">模板</a>
+    
+    <a href="/tags/尺取法/" style="font-size: 12.138827861999307px;" class="tag-cloud-link">尺取法</a>
+    
+    <a href="/tags/记忆化搜索/" style="font-size: 9.999700325097063px;" class="tag-cloud-link">记忆化搜索</a>
+    
+    <a href="/tags/优先队列/" style="font-size: 9.056783587153195px;" class="tag-cloud-link">优先队列</a>
+    
+    <a href="/tags/tarjan/" style="font-size: 16.262826325754833px;" class="tag-cloud-link">tarjan</a>
+    
+    <a href="/tags/缩点/" style="font-size: 15.822671986739575px;" class="tag-cloud-link">缩点</a>
+    
+    <a href="/tags/fft/" style="font-size: 16.765022962604665px;" class="tag-cloud-link">fft</a>
+    
+    <a href="/tags/HDU/" style="font-size: 17.2145542566905px;" class="tag-cloud-link">HDU</a>
+    
+    <a href="/tags/数学/" style="font-size: 18.711491998214452px;" class="tag-cloud-link">数学</a>
+    
+    <a href="/tags/可持久化线段树/" style="font-size: 17.228736872360027px;" class="tag-cloud-link">可持久化线段树</a>
+    
+    <a href="/tags/带权并查集/" style="font-size: 14.647674689348307px;" class="tag-cloud-link">带权并查集</a>
+    
+    <a href="/tags/二分图匹配/" style="font-size: 15.696382200171247px;" class="tag-cloud-link">二分图匹配</a>
+    
+    <a href="/tags/匈牙利算法/" style="font-size: 16.77591470324352px;" class="tag-cloud-link">匈牙利算法</a>
+    
+    <a href="/tags/SPOJ/" style="font-size: 15.087112178850283px;" class="tag-cloud-link">SPOJ</a>
+    
+    <a href="/tags/快速幂/" style="font-size: 11.505110110135544px;" class="tag-cloud-link">快速幂</a>
+    
+    <a href="/tags/组合数学/" style="font-size: 18.359912369848782px;" class="tag-cloud-link">组合数学</a>
+    
+    <a href="/tags/逆元/" style="font-size: 9.001767847066967px;" class="tag-cloud-link">逆元</a>
+    
+    <a href="/tags/codeforces/" style="font-size: 16.405752431282888px;" class="tag-cloud-link">codeforces</a>
+    
+    <a href="/tags/测试/" style="font-size: 10.507599773123449px;" class="tag-cloud-link">测试</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 csx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>

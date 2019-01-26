@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="csx">
+    
+    
+    
+    
+    
+    
+    <title>BZOJ1066[SCOI2007]蜥蜴 | csx的小博客</title>
+    <link href="”“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/csx.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head></html>
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">csx的小博客</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/未分类/">未分类</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/训练/">训练</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/工具/">工具</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/BZOJ/">BZOJ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/splay/">splay</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/数据结构/">数据结构</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">csx的小博客</a>
+        >
+        <span>BZOJ1066[SCOI2007]蜥蜴</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/04/24/bzoj1066scoi2007-e8-9c-a5-e8-9c-b4/">BZOJ1066[SCOI2007]蜥蜴</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/BZOJ/">BZOJ</a>, 
+                
+                <a href="/tags/图论/">图论</a>, 
+                
+                <a href="/tags/网络流/">网络流</a>, 
+                
+                <a href="/tags/dinic/">dinic</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-04-24
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/04/24/bzoj1066scoi2007-e8-9c-a5-e8-9c-b4/">BZOJ1066[SCOI2007]蜥蜴</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-04-24
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/BZOJ/">BZOJ</a>, 
+                
+                <a href="/tags/图论/">图论</a>, 
+                
+                <a href="/tags/网络流/">网络流</a>, 
+                
+                <a href="/tags/dinic/">dinic</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>在一个r行c列的网格地图中有一些高度不同的石柱，一些石柱上站着一些蜥蜴，你的任务是让尽量多的蜥蜴逃 到边界外。 每行每列中相邻石柱的距离为1，蜥蜴的跳跃距离是d，即蜥蜴可以跳到平面距离不超过d的任何一个石 柱上。石柱都不稳定，每次当蜥蜴跳跃时，所离开的石柱高度减1（如果仍然落在地图内部，则到达的石柱高度不 变），如果该石柱原来高度为1，则蜥蜴离开后消失。以后其他蜥蜴不能落脚。任何时刻不能有两只蜥蜴在同一个 石柱上。</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>输入第一行为三个整数r，c，d，即地图的规模与最大跳跃距离。以下r行为石竹的初始状态，0表示没有石柱 ，1~3表示石柱的初始高度。以下r行为蜥蜴位置，“L”表示蜥蜴，“.”表示没有蜥蜴。</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>输出仅一行，包含一个整数，即无法逃离的蜥蜴总数的最小值。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><p>5 8 2<br>00000000<br>02000000<br>00321100<br>02000000<br>00000000<br>……..<br>……..<br>..LLLL..<br>……..<br>……..</p>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>1</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以用网络流来解决这题，把有数字的点拆成点A和点B若该点有蜥蜴那么让源和A点相连容量为1，若该点可以跑出去让B点和汇点相连容量为INF，然后让A和B相连容量为该点柱子的长度，dinic求个最大流，最大流就是能跑出去的蜥蜴的数量。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">100000</span>;</span><br><span class="line"><span class="keyword">int</span> c, r, d, n;</span><br><span class="line"><span class="keyword">int</span> head[<span class="number">10000</span>], h[<span class="number">10000</span>], cnt=<span class="number">1</span>, num=<span class="number">0</span>, flo=<span class="number">0</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Data</span>&#123;</span><span class="keyword">int</span> to, nxt, v;&#125;e[<span class="number">1800000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">abs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> x&gt;<span class="number">0</span>?x:-x;&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ins</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    cnt++;</span><br><span class="line">    e[cnt].to = v;</span><br><span class="line">    e[cnt].v = w;</span><br><span class="line">    e[cnt].nxt = head[u];</span><br><span class="line">    head[u] = cnt;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span>(h));</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(<span class="number">0</span>); h[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = q.front(); q.pop();</span><br><span class="line">        <span class="keyword">int</span> i = head[t];</span><br><span class="line">        <span class="keyword">while</span> (i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (e[i].v&amp;&amp;h[e[i].to]&lt;<span class="number">0</span>) &#123;</span><br><span class="line">                h[e[i].to] = h[t]+<span class="number">1</span>;</span><br><span class="line">                q.push(e[i].to);</span><br><span class="line">            &#125;</span><br><span class="line">            i = e[i].nxt;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h[n+<span class="number">1</span>] == <span class="number">-1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == n+<span class="number">1</span>) <span class="keyword">return</span> f;</span><br><span class="line">    <span class="keyword">int</span> i = head[x], w, used = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e[i].v&amp;&amp;h[e[i].to]==h[x]+<span class="number">1</span>) &#123;</span><br><span class="line">            w = f - used;</span><br><span class="line">            w = dfs(e[i].to, min(w, e[i].v));</span><br><span class="line">            used += w;</span><br><span class="line">            e[i].v -= w;</span><br><span class="line">            e[i^<span class="number">1</span>].v += w;</span><br><span class="line">            <span class="keyword">if</span> (used == f) <span class="keyword">return</span> f;</span><br><span class="line">        &#125;</span><br><span class="line">        i = e[i].nxt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!used) h[x] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> used;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dinic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (bfs()) flo += dfs(<span class="number">0</span>, INF);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x<span class="number">-1</span>)*c+y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oth</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i + c*r;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isOk</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x-d)&lt;=<span class="number">0</span> || (x+d)&gt;r || (y-d)&lt;=<span class="number">0</span> || (y+d)&gt;c;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="number">0</span>&lt;x)&amp;&amp;(x&lt;=r)&amp;&amp;(<span class="number">0</span>&lt;y)&amp;&amp;(y&lt;=c);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addE</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id1 = id(x1, y1), id2 = id(x2, y2);</span><br><span class="line">    ins(oth(id1), id2, INF); ins(id2, oth(id1), <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//ins(oth(id2), id1, INF); ins(id1, oth(id2), 0);</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">char</span> s1[<span class="number">25</span>][<span class="number">25</span>];</span><br><span class="line"><span class="keyword">int</span> nu[<span class="number">25</span>][<span class="number">25</span>];</span><br><span class="line"><span class="keyword">char</span> s2[<span class="number">25</span>][<span class="number">25</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= r; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= c; j++) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; nu[i][j] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= r; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= c; j++) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; s2[i][j] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//freopen("in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;r,&amp;c,&amp;d);</span><br><span class="line">    n = <span class="number">2</span>*r*c;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= r; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s1[i]+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= c; j++) &#123;</span><br><span class="line">            nu[i][j] = s1[i][j]-<span class="string">'0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= r; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s2[i]+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//debug();</span></span><br><span class="line">    <span class="comment">//cout &lt;&lt; "n: " &lt;&lt; n &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= r; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= c; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nu[i][j] &amp;&amp; isOk(i, j)) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = id(i, j);</span><br><span class="line">                <span class="comment">//cout &lt;&lt; "i: " &lt;&lt; i &lt;&lt; " j: " &lt;&lt; j &lt;&lt; endl;</span></span><br><span class="line">                ins(oth(x), n+<span class="number">1</span>, INF);</span><br><span class="line">                ins(n+<span class="number">1</span>, oth(x), <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (nu[i][j] &amp;&amp; s2[i][j]==<span class="string">'L'</span>) &#123;</span><br><span class="line">                num++;</span><br><span class="line">                <span class="keyword">int</span> x = id(i, j);</span><br><span class="line">                <span class="comment">//cout &lt;&lt; "i: " &lt;&lt; i &lt;&lt; " j: " &lt;&lt; j &lt;&lt; endl;</span></span><br><span class="line">                ins(<span class="number">0</span>, x, <span class="number">1</span>);</span><br><span class="line">                ins(x, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (nu[i][j]) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = id(i, j);</span><br><span class="line">                <span class="comment">//cout&lt;&lt;"i:"&lt;&lt;i&lt;&lt;" j:"&lt;&lt;j&lt;&lt;" x:"&lt;&lt;oth(x)&lt;&lt;endl;</span></span><br><span class="line">                ins(x, oth(x), nu[i][j]);</span><br><span class="line">                <span class="comment">//cout &lt;&lt;"i:"&lt;&lt;i&lt;&lt;" j:"&lt;&lt;j&lt;&lt;" nu:"&lt;&lt;nu[i][j]&lt;&lt;endl;</span></span><br><span class="line">                ins(oth(x), x, <span class="number">0</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= r; k++) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= c; t++) &#123;</span><br><span class="line">                        <span class="comment">//if (!check(k, t)) continue;</span></span><br><span class="line">                        <span class="keyword">if</span> (k != i || t != j) &#123;</span><br><span class="line">                            <span class="keyword">int</span> dis = <span class="built_in">abs</span>(k-i) + <span class="built_in">abs</span>(t-j);</span><br><span class="line">                            <span class="keyword">if</span> (nu[k][t] &amp;&amp; dis&lt;=d) &#123;</span><br><span class="line">                                <span class="comment">//cout &lt;&lt; "i:"&lt;&lt;i&lt;&lt;" j:"&lt;&lt;j;;</span></span><br><span class="line">                                <span class="comment">//cout &lt;&lt; " k:"&lt;&lt;k&lt;&lt;" t:"&lt;&lt;t&lt;&lt;endl;</span></span><br><span class="line">                                addE(i, j, k, t);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dinic();</span><br><span class="line">    <span class="comment">//cout &lt;&lt; "num: " &lt;&lt; num &lt;&lt; " flow: " &lt;&lt; flo &lt;&lt; endl;</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, num-flo);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            csx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/csx.png" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/21/Emacs学习day4/">Emacs学习day4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/20/Emacs学习day3/">Emacs学习day3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/19/codeforces2/">codeforces2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/18/Emacs学习day2/">Emacs学习day2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/codeforces1/">codeforces1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/格式测试/">一些格式测试</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/spoj-dquery/">SPOJ-DQUERY</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/hdu6278just-h-index/">HDU6278Just h-index</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/18/Emacs学习day2/">Emacs学习day2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/12/bjwc2008-e9-9b-b7-e6-b6-9b-e7-9a-84-e5-b0-8f-e7-8c-ab/">BZOJ1270[BJWc2008]雷涛的小猫</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/12/bzoj1003-e7-89-a9-e6-b5-81-e8-bf-90-e8-be-93/">BZOJ1003[ZJOI]物流运输</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/27/bzoj1067scoi2007-e9-99-8d-e9-9b-a8-e9-87-8f/">BZOJ1067[SCOI2007]降雨量</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/23/bzoj1934shoi2007vote-e5-96-84-e6-84-8f-e7-9a-84-e6-8a-95-e7-a5-a8/">BZOJ1934[Shoi2007]Vote 善意的投票</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/14/bzoj2190sdoi2008-e4-bb-aa-e4-bb-97-e9-98-9f/">BZOJ2190[SDOI2008]仪仗队</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/08/bzoj2330scoi2011-e7-b3-96-e6-9e-9c/">BZOJ2330[SCOI2011]糖果</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/21/cf475-div2/">cf475 div2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/10/bzoj1079scoi2008-e7-9d-80-e8-89-b2-e6-96-b9-e6-a1-88/">BZOJ1079[SCOI2008]着色方案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/03/06/hello-world-1/">世界，您好！</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2018/04/24/bzoj1066scoi2007-e8-9c-a5-e8-9c-b4/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2018/04/24/bzoj1066scoi2007-e8-9c-a5-e8-9c-b4/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2018/04/24/bzoj1066scoi2007-e8-9c-a5-e8-9c-b4/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/BZOJ/" style="font-size: 10.453751548647718px;" class="tag-cloud-link">BZOJ</a>
+    
+    <a href="/tags/splay/" style="font-size: 19.87461632066867px;" class="tag-cloud-link">splay</a>
+    
+    <a href="/tags/数据结构/" style="font-size: 12.234295965330094px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/kruskal/" style="font-size: 17.274951924237474px;" class="tag-cloud-link">kruskal</a>
+    
+    <a href="/tags/mst/" style="font-size: 9.050940704479679px;" class="tag-cloud-link">mst</a>
+    
+    <a href="/tags/emacs/" style="font-size: 19.80462171236607px;" class="tag-cloud-link">emacs</a>
+    
+    <a href="/tags/dp/" style="font-size: 16.437742036322245px;" class="tag-cloud-link">dp</a>
+    
+    <a href="/tags/并查集/" style="font-size: 9.213759883847121px;" class="tag-cloud-link">并查集</a>
+    
+    <a href="/tags/离线处理/" style="font-size: 12.693193449035128px;" class="tag-cloud-link">离线处理</a>
+    
+    <a href="/tags/递推/" style="font-size: 19.198346155939323px;" class="tag-cloud-link">递推</a>
+    
+    <a href="/tags/高精度/" style="font-size: 15.890572419800453px;" class="tag-cloud-link">高精度</a>
+    
+    <a href="/tags/spfa/" style="font-size: 8.984290024578812px;" class="tag-cloud-link">spfa</a>
+    
+    <a href="/tags/区间dp/" style="font-size: 10.384277618908737px;" class="tag-cloud-link">区间dp</a>
+    
+    <a href="/tags/图论/" style="font-size: 15.738250038528355px;" class="tag-cloud-link">图论</a>
+    
+    <a href="/tags/二进制/" style="font-size: 18.19834324425369px;" class="tag-cloud-link">二进制</a>
+    
+    <a href="/tags/单调栈/" style="font-size: 10.2878369934514px;" class="tag-cloud-link">单调栈</a>
+    
+    <a href="/tags/计算几何/" style="font-size: 17.444346142461907px;" class="tag-cloud-link">计算几何</a>
+    
+    <a href="/tags/高斯消元/" style="font-size: 16.939326785707223px;" class="tag-cloud-link">高斯消元</a>
+    
+    <a href="/tags/dfs/" style="font-size: 8.840514693757317px;" class="tag-cloud-link">dfs</a>
+    
+    <a href="/tags/树形dp/" style="font-size: 9.262662171382772px;" class="tag-cloud-link">树形dp</a>
+    
+    <a href="/tags/数论/" style="font-size: 19.75880581873378px;" class="tag-cloud-link">数论</a>
+    
+    <a href="/tags/欧几里得算法/" style="font-size: 13.044547628060503px;" class="tag-cloud-link">欧几里得算法</a>
+    
+    <a href="/tags/bfs/" style="font-size: 17.93952075447713px;" class="tag-cloud-link">bfs</a>
+    
+    <a href="/tags/hash/" style="font-size: 15.85528146838989px;" class="tag-cloud-link">hash</a>
+    
+    <a href="/tags/最小费用流/" style="font-size: 18.202190403483684px;" class="tag-cloud-link">最小费用流</a>
+    
+    <a href="/tags/网络流/" style="font-size: 8.448282388550954px;" class="tag-cloud-link">网络流</a>
+    
+    <a href="/tags/dinic/" style="font-size: 11.355484913226459px;" class="tag-cloud-link">dinic</a>
+    
+    <a href="/tags/RMQ/" style="font-size: 18.685610818690805px;" class="tag-cloud-link">RMQ</a>
+    
+    <a href="/tags/st表/" style="font-size: 14.08358454593413px;" class="tag-cloud-link">st表</a>
+    
+    <a href="/tags/二分/" style="font-size: 19.446578928794302px;" class="tag-cloud-link">二分</a>
+    
+    <a href="/tags/概率dp/" style="font-size: 15.948967049163834px;" class="tag-cloud-link">概率dp</a>
+    
+    <a href="/tags/状压dp/" style="font-size: 16.43304394377104px;" class="tag-cloud-link">状压dp</a>
+    
+    <a href="/tags/nim游戏/" style="font-size: 14.955150245443958px;" class="tag-cloud-link">nim游戏</a>
+    
+    <a href="/tags/sg函数/" style="font-size: 10.136911888598362px;" class="tag-cloud-link">sg函数</a>
+    
+    <a href="/tags/博弈论/" style="font-size: 17.119723374579948px;" class="tag-cloud-link">博弈论</a>
+    
+    <a href="/tags/暴力/" style="font-size: 14.68291043649954px;" class="tag-cloud-link">暴力</a>
+    
+    <a href="/tags/前缀和/" style="font-size: 10.103257253057567px;" class="tag-cloud-link">前缀和</a>
+    
+    <a href="/tags/思维/" style="font-size: 17.324999628109577px;" class="tag-cloud-link">思维</a>
+    
+    <a href="/tags/最大流/" style="font-size: 14.38213957529686px;" class="tag-cloud-link">最大流</a>
+    
+    <a href="/tags/最小割/" style="font-size: 10.835853769424425px;" class="tag-cloud-link">最小割</a>
+    
+    <a href="/tags/扩展欧几里得/" style="font-size: 12.306186829127718px;" class="tag-cloud-link">扩展欧几里得</a>
+    
+    <a href="/tags/floyd/" style="font-size: 10.696957732235308px;" class="tag-cloud-link">floyd</a>
+    
+    <a href="/tags/枚举/" style="font-size: 18.73012642262212px;" class="tag-cloud-link">枚举</a>
+    
+    <a href="/tags/bit/" style="font-size: 14.403119425551324px;" class="tag-cloud-link">bit</a>
+    
+    <a href="/tags/扫描线/" style="font-size: 16.841878231358056px;" class="tag-cloud-link">扫描线</a>
+    
+    <a href="/tags/离散化/" style="font-size: 17.50627583500794px;" class="tag-cloud-link">离散化</a>
+    
+    <a href="/tags/贪心/" style="font-size: 19.090308989722985px;" class="tag-cloud-link">贪心</a>
+    
+    <a href="/tags/欧拉函数/" style="font-size: 12.007972282143005px;" class="tag-cloud-link">欧拉函数</a>
+    
+    <a href="/tags/差分约束系统/" style="font-size: 9.437515534009236px;" class="tag-cloud-link">差分约束系统</a>
+    
+    <a href="/tags/线段树/" style="font-size: 15.267089570787434px;" class="tag-cloud-link">线段树</a>
+    
+    <a href="/tags/treap/" style="font-size: 12.284975295800587px;" class="tag-cloud-link">treap</a>
+    
+    <a href="/tags/打表/" style="font-size: 14.126687877757092px;" class="tag-cloud-link">打表</a>
+    
+    <a href="/tags/找规律/" style="font-size: 19.88516878394185px;" class="tag-cloud-link">找规律</a>
+    
+    <a href="/tags/树状数组/" style="font-size: 12.762607711701211px;" class="tag-cloud-link">树状数组</a>
+    
+    <a href="/tags/脑洞/" style="font-size: 18.017124852203555px;" class="tag-cloud-link">脑洞</a>
+    
+    <a href="/tags/构造/" style="font-size: 15.296502760111px;" class="tag-cloud-link">构造</a>
+    
+    <a href="/tags/kmp/" style="font-size: 15.6832366467761px;" class="tag-cloud-link">kmp</a>
+    
+    <a href="/tags/模拟/" style="font-size: 11.045136498296145px;" class="tag-cloud-link">模拟</a>
+    
+    <a href="/tags/模板/" style="font-size: 13.41020675101767px;" class="tag-cloud-link">模板</a>
+    
+    <a href="/tags/尺取法/" style="font-size: 14.627333292481767px;" class="tag-cloud-link">尺取法</a>
+    
+    <a href="/tags/记忆化搜索/" style="font-size: 15.830498789766008px;" class="tag-cloud-link">记忆化搜索</a>
+    
+    <a href="/tags/优先队列/" style="font-size: 8.622376631985778px;" class="tag-cloud-link">优先队列</a>
+    
+    <a href="/tags/tarjan/" style="font-size: 11.14771185117531px;" class="tag-cloud-link">tarjan</a>
+    
+    <a href="/tags/缩点/" style="font-size: 15.917263091789305px;" class="tag-cloud-link">缩点</a>
+    
+    <a href="/tags/fft/" style="font-size: 8.198207532497957px;" class="tag-cloud-link">fft</a>
+    
+    <a href="/tags/HDU/" style="font-size: 17.218153917843747px;" class="tag-cloud-link">HDU</a>
+    
+    <a href="/tags/数学/" style="font-size: 14.655900519378614px;" class="tag-cloud-link">数学</a>
+    
+    <a href="/tags/可持久化线段树/" style="font-size: 10.692784008740688px;" class="tag-cloud-link">可持久化线段树</a>
+    
+    <a href="/tags/带权并查集/" style="font-size: 17.22910067791713px;" class="tag-cloud-link">带权并查集</a>
+    
+    <a href="/tags/二分图匹配/" style="font-size: 10.441310693451594px;" class="tag-cloud-link">二分图匹配</a>
+    
+    <a href="/tags/匈牙利算法/" style="font-size: 11.794830655640906px;" class="tag-cloud-link">匈牙利算法</a>
+    
+    <a href="/tags/SPOJ/" style="font-size: 9.332841884286776px;" class="tag-cloud-link">SPOJ</a>
+    
+    <a href="/tags/快速幂/" style="font-size: 11.180783073995958px;" class="tag-cloud-link">快速幂</a>
+    
+    <a href="/tags/组合数学/" style="font-size: 10.770942324672472px;" class="tag-cloud-link">组合数学</a>
+    
+    <a href="/tags/逆元/" style="font-size: 11.754778102124476px;" class="tag-cloud-link">逆元</a>
+    
+    <a href="/tags/codeforces/" style="font-size: 16.33081728087972px;" class="tag-cloud-link">codeforces</a>
+    
+    <a href="/tags/测试/" style="font-size: 8.857367294584323px;" class="tag-cloud-link">测试</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 csx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>

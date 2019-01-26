@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="csx">
+    
+    
+    
+    
+    
+    
+    <title>Wannafly挑战赛13 | csx的小博客</title>
+    <link href="”“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/csx.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head></html>
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">csx的小博客</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/未分类/">未分类</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/训练/">训练</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/工具/">工具</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/BZOJ/">BZOJ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/splay/">splay</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/数据结构/">数据结构</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">csx的小博客</a>
+        >
+        <span>Wannafly挑战赛13</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/04/07/wannafly-e6-8c-91-e6-88-98-e8-b5-9b13/">Wannafly挑战赛13</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/快速幂/">快速幂</a>, 
+                
+                <a href="/tags/组合数学/">组合数学</a>, 
+                
+                <a href="/tags/逆元/">逆元</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-04-07
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/04/07/wannafly-e6-8c-91-e6-88-98-e8-b5-9b13/">Wannafly挑战赛13</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-04-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/快速幂/">快速幂</a>, 
+                
+                <a href="/tags/组合数学/">组合数学</a>, 
+                
+                <a href="/tags/逆元/">逆元</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>A. zzy的小号 题意：又到了打wannafly的时候，许许多多的大佬准备注册小号开始虐场，zzy也不例外，他发现他的电脑的字体有一个特点！某些不同的字符所显示的是一样的！ 满足以下四种情况之一，所显示的字符是一样的 1、两个字符互为英文字母的大小写 2、大写的’i’和小写的’l’ 3、大写的’o’和数字’0’ 4、基于前三种情况，三个字符a,b,c，如果a和b显示相同，b和c显示相同，那么a和c显示也是相同的 珂学家zzy想知道，对于一个他看起来相同的昵称，有多少个看起来一样的昵称 两个字符串看起來一样当且仅当长度一样且每个对应的位置的字符看起來一样 思路：数字只有‘0’有3种情况其它均为1种，字母‘i’，‘l’有4种情况，字母‘o’有3种情况其余均为2种。 代码：</p>
+<h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <stdio.h></stdio.h></h1><h1 id="include-1"><a href="#include-1" class="headerlink" title="include "></a>include <algorithm></algorithm></h1><h1 id="include-2"><a href="#include-2" class="headerlink" title="include "></a>include <assert.h></assert.h></h1><h1 id="include-3"><a href="#include-3" class="headerlink" title="include "></a>include <bitset></bitset></h1><h1 id="include-4"><a href="#include-4" class="headerlink" title="include "></a>include <cmath></cmath></h1><h1 id="include-5"><a href="#include-5" class="headerlink" title="include "></a>include <complex></complex></h1><h1 id="include-6"><a href="#include-6" class="headerlink" title="include "></a>include <deque></deque></h1><h1 id="include-7"><a href="#include-7" class="headerlink" title="include "></a>include <functional></functional></h1><h1 id="include-8"><a href="#include-8" class="headerlink" title="include "></a>include <iostream></iostream></h1><h1 id="include-9"><a href="#include-9" class="headerlink" title="include "></a>include <limits.h></limits.h></h1><h1 id="include-10"><a href="#include-10" class="headerlink" title="include "></a>include <map></map></h1><h1 id="include-11"><a href="#include-11" class="headerlink" title="include "></a>include <math.h></math.h></h1><h1 id="include-12"><a href="#include-12" class="headerlink" title="include "></a>include <queue></queue></h1><h1 id="include-13"><a href="#include-13" class="headerlink" title="include "></a>include <set></set></h1><h1 id="include-14"><a href="#include-14" class="headerlink" title="include "></a>include <stdlib.h></stdlib.h></h1><h1 id="include-15"><a href="#include-15" class="headerlink" title="include "></a>include <string.h></string.h></h1><h1 id="include-16"><a href="#include-16" class="headerlink" title="include "></a>include <string></string></h1><h1 id="include-17"><a href="#include-17" class="headerlink" title="include "></a>include <time.h></time.h></h1><h1 id="include-18"><a href="#include-18" class="headerlink" title="include "></a>include <unordered_map></unordered_map></h1><h1 id="include-19"><a href="#include-19" class="headerlink" title="include "></a>include <unordered_set></unordered_set></h1><h1 id="include-20"><a href="#include-20" class="headerlink" title="include "></a>include <vector></vector></h1><h1 id="pragma-warning-disable-4996"><a href="#pragma-warning-disable-4996" class="headerlink" title="pragma warning(disable:4996)"></a>pragma warning(disable:4996)</h1><h1 id="pragma-comment-linker-“-STACK-336777216”"><a href="#pragma-comment-linker-“-STACK-336777216”" class="headerlink" title="pragma comment(linker, “/STACK:336777216”)"></a>pragma comment(linker, “/STACK:336777216”)</h1><p>using namespace std;</p>
+<h1 id="define-mp-make-pair"><a href="#define-mp-make-pair" class="headerlink" title="define mp make_pair"></a>define mp make_pair</h1><h1 id="define-all-x-x-begin-x-end"><a href="#define-all-x-x-begin-x-end" class="headerlink" title="define all(x) (x).begin(), (x).end()"></a>define all(x) (x).begin(), (x).end()</h1><h1 id="define-ldb-ldouble"><a href="#define-ldb-ldouble" class="headerlink" title="define ldb ldouble"></a>define ldb ldouble</h1><p>typedef tuple<int, int,="" int=""> t3;<br>typedef long long ll;<br>typedef unsigned long long ull;<br>typedef double db;<br>typedef long double ldb;<br>typedef pair <int, int=""> pii;<br>typedef pair <ll, ll=""> pll;<br>typedef pair <ll, int=""> pli;<br>typedef pair <db, db=""> pdd;</db,></ll,></ll,></int,></int,></p>
+<p>int IT_MAX = 1 &lt;&lt; 17;<br>ll MOD = 1000000007;<br>const int INF = 0x3f3f3f3f;<br>const ll LL_INF = 0x3f3f3f3f3f3f3f3f;<br>const db PI = acos(-1);<br>const db ERR = 1e-10;</p>
+<h1 id="define-szz-x-int-x-size"><a href="#define-szz-x-int-x-size" class="headerlink" title="define szz(x) (int)(x).size()"></a>define szz(x) (int)(x).size()</h1><h1 id="define-rep-i-n-for-int-i-0-i-lt-n-i"><a href="#define-rep-i-n-for-int-i-0-i-lt-n-i" class="headerlink" title="define rep(i, n) for(int i=0;i&lt;n;i++)"></a>define rep(i, n) for(int i=0;i&lt;n;i++)</h1><h1 id="define-Se-second"><a href="#define-Se-second" class="headerlink" title="define Se second"></a>define Se second</h1><h1 id="define-Fi-first"><a href="#define-Fi-first" class="headerlink" title="define Fi first"></a>define Fi first</h1><p>const int MAX_N = 100010;<br>char s[MAX_N];<br>int len;</p>
+<p>int main() {<br>    // freopen(“in.txt”, “r”, stdin);<br>    // freopen(“out.txt”, “w”, stdout);<br>    while (~scanf(“%s”, s)) {<br>        ll ans = 1;<br>        len = strlen(s);<br>        rep(i, len) {<br>            if (isdigit(s[i])) {<br>                if (s[i] == ‘0’) {<br>                    ans <em>= 3;<br>                    ans %= MOD;<br>                } else {<br>                    ans </em>= 1;<br>                }<br>            } else {<br>                if (s[i] == ‘o’ || s[i] == ‘O’) {<br>                    ans <em>= 3;<br>                    ans %= MOD;<br>                } else if (s[i] == ‘i’ || s[i] == ‘I’ || s[i] == ‘l’ || s[i] == ‘L’) {<br>                    ans </em>= 4;<br>                    ans %= MOD;<br>                } else {<br>                    ans *= 2;<br>                    ans %= MOD;<br>                }<br>            }<br>        }<br>        printf(“%lld\n”, ans % MOD);<br>    }<br>    return 0;<br>}</p>
+<p>B. Jxc军训 题意：Jxc将天空看做一个n*n的矩阵，此时天上有m朵云，这些云会随机分布在m个不同的位置，同时太阳会随机出现在一个位置，Jxc想知道他被太阳晒到的概率是多少，由于他仍在站军姿，所以这个有趣的问题就交给了你。考虑到精度问题，Jxc只需要知道这个概率在对998244353取模意义下的值。 Tips：一个分数p/q在模意义下的值即p*q-1在模意义下的值，Xp-1<img src="https://uploadfiles.nowcoder.com/files/20180404/301599_1522836190862_equation?tex=%5Cequiv" alt="">1 (mod p) 思路：概率为[latex]\frac{n^{2}-m}{n^{2}}[/latex],快速幂求个逆元即可。 代码：</p>
+<h1 id="include-21"><a href="#include-21" class="headerlink" title="include "></a>include <stdio.h></stdio.h></h1><h1 id="include-22"><a href="#include-22" class="headerlink" title="include "></a>include <algorithm></algorithm></h1><h1 id="include-23"><a href="#include-23" class="headerlink" title="include "></a>include <assert.h></assert.h></h1><h1 id="include-24"><a href="#include-24" class="headerlink" title="include "></a>include <bitset></bitset></h1><h1 id="include-25"><a href="#include-25" class="headerlink" title="include "></a>include <cmath></cmath></h1><h1 id="include-26"><a href="#include-26" class="headerlink" title="include "></a>include <complex></complex></h1><h1 id="include-27"><a href="#include-27" class="headerlink" title="include "></a>include <deque></deque></h1><h1 id="include-28"><a href="#include-28" class="headerlink" title="include "></a>include <functional></functional></h1><h1 id="include-29"><a href="#include-29" class="headerlink" title="include "></a>include <iostream></iostream></h1><h1 id="include-30"><a href="#include-30" class="headerlink" title="include "></a>include <limits.h></limits.h></h1><h1 id="include-31"><a href="#include-31" class="headerlink" title="include "></a>include <map></map></h1><h1 id="include-32"><a href="#include-32" class="headerlink" title="include "></a>include <math.h></math.h></h1><h1 id="include-33"><a href="#include-33" class="headerlink" title="include "></a>include <queue></queue></h1><h1 id="include-34"><a href="#include-34" class="headerlink" title="include "></a>include <set></set></h1><h1 id="include-35"><a href="#include-35" class="headerlink" title="include "></a>include <stdlib.h></stdlib.h></h1><h1 id="include-36"><a href="#include-36" class="headerlink" title="include "></a>include <string.h></string.h></h1><h1 id="include-37"><a href="#include-37" class="headerlink" title="include "></a>include <string></string></h1><h1 id="include-38"><a href="#include-38" class="headerlink" title="include "></a>include <time.h></time.h></h1><h1 id="include-39"><a href="#include-39" class="headerlink" title="include "></a>include <unordered_map></unordered_map></h1><h1 id="include-40"><a href="#include-40" class="headerlink" title="include "></a>include <unordered_set></unordered_set></h1><h1 id="include-41"><a href="#include-41" class="headerlink" title="include "></a>include <vector></vector></h1><h1 id="pragma-warning-disable-4996-1"><a href="#pragma-warning-disable-4996-1" class="headerlink" title="pragma warning(disable:4996)"></a>pragma warning(disable:4996)</h1><h1 id="pragma-comment-linker-“-STACK-336777216”-1"><a href="#pragma-comment-linker-“-STACK-336777216”-1" class="headerlink" title="pragma comment(linker, “/STACK:336777216”)"></a>pragma comment(linker, “/STACK:336777216”)</h1><p>using namespace std;</p>
+<h1 id="define-mp-make-pair-1"><a href="#define-mp-make-pair-1" class="headerlink" title="define mp make_pair"></a>define mp make_pair</h1><h1 id="define-all-x-x-begin-x-end-1"><a href="#define-all-x-x-begin-x-end-1" class="headerlink" title="define all(x) (x).begin(), (x).end()"></a>define all(x) (x).begin(), (x).end()</h1><h1 id="define-ldb-ldouble-1"><a href="#define-ldb-ldouble-1" class="headerlink" title="define ldb ldouble"></a>define ldb ldouble</h1><p>typedef tuple<int, int,="" int=""> t3;<br>typedef long long ll;<br>typedef unsigned long long ull;<br>typedef double db;<br>typedef long double ldb;<br>typedef pair <int, int=""> pii;<br>typedef pair <ll, ll=""> pll;<br>typedef pair <ll, int=""> pli;<br>typedef pair <db, db=""> pdd;</db,></ll,></ll,></int,></int,></p>
+<p>int IT_MAX = 1 &lt;&lt; 17;<br>ll MOD = 998244353;<br>const int INF = 0x3f3f3f3f;<br>const ll LL_INF = 0x3f3f3f3f3f3f3f3f;<br>const db PI = acos(-1);<br>const db ERR = 1e-10;</p>
+<h1 id="define-szz-x-int-x-size-1"><a href="#define-szz-x-int-x-size-1" class="headerlink" title="define szz(x) (int)(x).size()"></a>define szz(x) (int)(x).size()</h1><h1 id="define-rep-i-n-for-int-i-0-i-lt-n-i-1"><a href="#define-rep-i-n-for-int-i-0-i-lt-n-i-1" class="headerlink" title="define rep(i, n) for(int i=0;i&lt;n;i++)"></a>define rep(i, n) for(int i=0;i&lt;n;i++)</h1><h1 id="define-Se-second-1"><a href="#define-Se-second-1" class="headerlink" title="define Se second"></a>define Se second</h1><h1 id="define-Fi-first-1"><a href="#define-Fi-first-1" class="headerlink" title="define Fi first"></a>define Fi first</h1><p>ll P(ll n, ll m) {<br>    ll res = 1;<br>    for (ll i = 0; i &lt; m; i++) {<br>        res *= n;<br>        res %= MOD;<br>        n—;<br>    }<br>    return res;<br>}</p>
+<p>int main() {<br>    // freopen(“in.txt”, “r”, stdin);<br>    // freopen(“out.txt”, “w”, stdout);<br>    ll n;<br>    while (cin &gt;&gt; n) {<br>        ll t = P(n, n);<br>        cout &lt;&lt; (2 <em> t </em> t) % MOD &lt;&lt; endl;<br>    }<br>    return 0;<br>}</p>
+<p>C. zzf的好矩阵 题意：一个8 <em> 8的棋盘，第一个格子放1个麦穗，第二个格子放2个麦穗，第三个格子放4个麦穗……那么最后，共要放几个麦穗呢？ zzf表示这个问题实在太简单，于是重新规定了游戏的规则。 初始的棋盘为空，棋盘大小为p\</em>p，然后他要对棋盘进行若干次操作，可以被选择的操作如下： 1、选择一行，每个格子再放一个麦穗 2、选择一列，每个格子再放一个麦穗 进行若干次操作后，如果得到的棋盘满足如下性质 1、每个格子都有至少一个麦穗 2、每个格子最多只能有p*p个麦穗 3、任意两个格子的麦穗数不同 如果满足以上三条，那么称这个棋盘是一个好棋盘，若只是构造一个好棋盘那就太没意思了，zzf想知道他能得到多少个不同的好矩阵 定义不同的矩阵即只要存在一个位置不同即是不同的 答案对998244353取模 思路：答案为[latex]2*(A_p^p)^{2}[/latex] 代码：</p>
+<h1 id="include-42"><a href="#include-42" class="headerlink" title="include "></a>include <stdio.h></stdio.h></h1><h1 id="include-43"><a href="#include-43" class="headerlink" title="include "></a>include <algorithm></algorithm></h1><h1 id="include-44"><a href="#include-44" class="headerlink" title="include "></a>include <assert.h></assert.h></h1><h1 id="include-45"><a href="#include-45" class="headerlink" title="include "></a>include <bitset></bitset></h1><h1 id="include-46"><a href="#include-46" class="headerlink" title="include "></a>include <cmath></cmath></h1><h1 id="include-47"><a href="#include-47" class="headerlink" title="include "></a>include <complex></complex></h1><h1 id="include-48"><a href="#include-48" class="headerlink" title="include "></a>include <deque></deque></h1><h1 id="include-49"><a href="#include-49" class="headerlink" title="include "></a>include <functional></functional></h1><h1 id="include-50"><a href="#include-50" class="headerlink" title="include "></a>include <iostream></iostream></h1><h1 id="include-51"><a href="#include-51" class="headerlink" title="include "></a>include <limits.h></limits.h></h1><h1 id="include-52"><a href="#include-52" class="headerlink" title="include "></a>include <map></map></h1><h1 id="include-53"><a href="#include-53" class="headerlink" title="include "></a>include <math.h></math.h></h1><h1 id="include-54"><a href="#include-54" class="headerlink" title="include "></a>include <queue></queue></h1><h1 id="include-55"><a href="#include-55" class="headerlink" title="include "></a>include <set></set></h1><h1 id="include-56"><a href="#include-56" class="headerlink" title="include "></a>include <stdlib.h></stdlib.h></h1><h1 id="include-57"><a href="#include-57" class="headerlink" title="include "></a>include <string.h></string.h></h1><h1 id="include-58"><a href="#include-58" class="headerlink" title="include "></a>include <string></string></h1><h1 id="include-59"><a href="#include-59" class="headerlink" title="include "></a>include <time.h></time.h></h1><h1 id="include-60"><a href="#include-60" class="headerlink" title="include "></a>include <unordered_map></unordered_map></h1><h1 id="include-61"><a href="#include-61" class="headerlink" title="include "></a>include <unordered_set></unordered_set></h1><h1 id="include-62"><a href="#include-62" class="headerlink" title="include "></a>include <vector></vector></h1><h1 id="pragma-warning-disable-4996-2"><a href="#pragma-warning-disable-4996-2" class="headerlink" title="pragma warning(disable:4996)"></a>pragma warning(disable:4996)</h1><h1 id="pragma-comment-linker-“-STACK-336777216”-2"><a href="#pragma-comment-linker-“-STACK-336777216”-2" class="headerlink" title="pragma comment(linker, “/STACK:336777216”)"></a>pragma comment(linker, “/STACK:336777216”)</h1><p>using namespace std;</p>
+<h1 id="define-mp-make-pair-2"><a href="#define-mp-make-pair-2" class="headerlink" title="define mp make_pair"></a>define mp make_pair</h1><h1 id="define-all-x-x-begin-x-end-2"><a href="#define-all-x-x-begin-x-end-2" class="headerlink" title="define all(x) (x).begin(), (x).end()"></a>define all(x) (x).begin(), (x).end()</h1><h1 id="define-ldb-ldouble-2"><a href="#define-ldb-ldouble-2" class="headerlink" title="define ldb ldouble"></a>define ldb ldouble</h1><p>typedef tuple<int, int,="" int=""> t3;<br>typedef long long ll;<br>typedef unsigned long long ull;<br>typedef double db;<br>typedef long double ldb;<br>typedef pair <int, int=""> pii;<br>typedef pair <ll, ll=""> pll;<br>typedef pair <ll, int=""> pli;<br>typedef pair <db, db=""> pdd;</db,></ll,></ll,></int,></int,></p>
+<p>int IT_MAX = 1 &lt;&lt; 17;<br>ll MOD = 998244353;<br>const int INF = 0x3f3f3f3f;<br>const ll LL_INF = 0x3f3f3f3f3f3f3f3f;<br>const db PI = acos(-1);<br>const db ERR = 1e-10;</p>
+<h1 id="define-szz-x-int-x-size-2"><a href="#define-szz-x-int-x-size-2" class="headerlink" title="define szz(x) (int)(x).size()"></a>define szz(x) (int)(x).size()</h1><h1 id="define-rep-i-n-for-int-i-0-i-lt-n-i-2"><a href="#define-rep-i-n-for-int-i-0-i-lt-n-i-2" class="headerlink" title="define rep(i, n) for(int i=0;i&lt;n;i++)"></a>define rep(i, n) for(int i=0;i&lt;n;i++)</h1><h1 id="define-Se-second-2"><a href="#define-Se-second-2" class="headerlink" title="define Se second"></a>define Se second</h1><h1 id="define-Fi-first-2"><a href="#define-Fi-first-2" class="headerlink" title="define Fi first"></a>define Fi first</h1><p>ll P(ll n, ll m) {<br>    ll res = 1;<br>    for (ll i = 0; i &lt; m; i++) {<br>        res *= n;<br>        res %= MOD;<br>        n—;<br>    }<br>    return res;<br>}</p>
+<p>int main() {<br>    // freopen(“in.txt”, “r”, stdin);<br>    // freopen(“out.txt”, “w”, stdout);<br>    ll n;<br>    while (cin &gt;&gt; n) {<br>        ll t = P(n, n);<br>        cout &lt;&lt; (2 <em> t </em> t) % MOD &lt;&lt; endl;<br>    }<br>    return 0;<br>}</p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            csx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/csx.png" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/21/Emacs学习day4/">Emacs学习day4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/20/Emacs学习day3/">Emacs学习day3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/19/codeforces2/">codeforces2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/18/Emacs学习day2/">Emacs学习day2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/codeforces1/">codeforces1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/格式测试/">一些格式测试</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/spoj-dquery/">SPOJ-DQUERY</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/hdu6278just-h-index/">HDU6278Just h-index</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/03/19/4-e5-b9-b4acm-e7-9a-84-e7-a2-8e-e7-a2-8e-e5-bf-b5/">4年ACM的碎碎念</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/12/bzoj1002-e8-bd-ae-e7-8a-b6-e7-97-85-e6-af-92/">BZOJ1002[FJOI]轮状病毒</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/12/bzoj1013jsoi2008-e7-90-83-e5-bd-a2-e7-a9-ba-e9-97-b4-e4-ba-a7-e7-94-9f-e5-99-a8sphere/">BZOJ1013[JSOI2008]球形空间产生器sphere</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/06/bzoj1040zjoi2008-e9-aa-91-e5-a3-ab/">BZOJ1040[ZJOI2008]骑士</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/16/bzoj1084scoi2005-e6-9c-80-e5-a4-a7-e5-ad-90-e7-9f-a9-e9-98-b5/">BZOJ1084[SCOI2005]最大子矩阵</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/08/cf489-div3/">cf489 div3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/13/haoi2006-e5-8f-97-e6-ac-a2-e8-bf-8e-e7-9a-84-e7-89-9b/">BZOJ1051[HAOI2006]受欢迎的牛</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/spoj-dquery/">SPOJ-DQUERY</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/13/zjoi2007-e7-9f-a9-e9-98-b5-e6-b8-b8-e6-88-8f/">BZOJ1059[ZJOI2007]矩阵游戏</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/格式测试/">一些格式测试</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2018/04/07/wannafly-e6-8c-91-e6-88-98-e8-b5-9b13/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2018/04/07/wannafly-e6-8c-91-e6-88-98-e8-b5-9b13/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2018/04/07/wannafly-e6-8c-91-e6-88-98-e8-b5-9b13/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/BZOJ/" style="font-size: 15.604838957744144px;" class="tag-cloud-link">BZOJ</a>
+    
+    <a href="/tags/splay/" style="font-size: 9.546848758827517px;" class="tag-cloud-link">splay</a>
+    
+    <a href="/tags/数据结构/" style="font-size: 10.800581561921026px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/kruskal/" style="font-size: 18.642638857198552px;" class="tag-cloud-link">kruskal</a>
+    
+    <a href="/tags/mst/" style="font-size: 16.95026703424277px;" class="tag-cloud-link">mst</a>
+    
+    <a href="/tags/emacs/" style="font-size: 17.81732996792475px;" class="tag-cloud-link">emacs</a>
+    
+    <a href="/tags/dp/" style="font-size: 13.530738441971387px;" class="tag-cloud-link">dp</a>
+    
+    <a href="/tags/并查集/" style="font-size: 11.026516530575524px;" class="tag-cloud-link">并查集</a>
+    
+    <a href="/tags/离线处理/" style="font-size: 19.819773184329097px;" class="tag-cloud-link">离线处理</a>
+    
+    <a href="/tags/递推/" style="font-size: 12.731065266421144px;" class="tag-cloud-link">递推</a>
+    
+    <a href="/tags/高精度/" style="font-size: 13.907194244274216px;" class="tag-cloud-link">高精度</a>
+    
+    <a href="/tags/spfa/" style="font-size: 9.413453989790417px;" class="tag-cloud-link">spfa</a>
+    
+    <a href="/tags/区间dp/" style="font-size: 14.651836936468094px;" class="tag-cloud-link">区间dp</a>
+    
+    <a href="/tags/图论/" style="font-size: 13.973880383542262px;" class="tag-cloud-link">图论</a>
+    
+    <a href="/tags/二进制/" style="font-size: 14.332038052227988px;" class="tag-cloud-link">二进制</a>
+    
+    <a href="/tags/单调栈/" style="font-size: 18.31166331362097px;" class="tag-cloud-link">单调栈</a>
+    
+    <a href="/tags/计算几何/" style="font-size: 18.469822612588523px;" class="tag-cloud-link">计算几何</a>
+    
+    <a href="/tags/高斯消元/" style="font-size: 16.51083810578591px;" class="tag-cloud-link">高斯消元</a>
+    
+    <a href="/tags/dfs/" style="font-size: 13.023909863165507px;" class="tag-cloud-link">dfs</a>
+    
+    <a href="/tags/树形dp/" style="font-size: 14.650637890387307px;" class="tag-cloud-link">树形dp</a>
+    
+    <a href="/tags/数论/" style="font-size: 18.071828846660047px;" class="tag-cloud-link">数论</a>
+    
+    <a href="/tags/欧几里得算法/" style="font-size: 15.219510216485485px;" class="tag-cloud-link">欧几里得算法</a>
+    
+    <a href="/tags/bfs/" style="font-size: 10.126873790281607px;" class="tag-cloud-link">bfs</a>
+    
+    <a href="/tags/hash/" style="font-size: 9.815490124671658px;" class="tag-cloud-link">hash</a>
+    
+    <a href="/tags/最小费用流/" style="font-size: 16.930025495356638px;" class="tag-cloud-link">最小费用流</a>
+    
+    <a href="/tags/网络流/" style="font-size: 11.870443691084601px;" class="tag-cloud-link">网络流</a>
+    
+    <a href="/tags/dinic/" style="font-size: 12.133738670135102px;" class="tag-cloud-link">dinic</a>
+    
+    <a href="/tags/RMQ/" style="font-size: 17.739384597772435px;" class="tag-cloud-link">RMQ</a>
+    
+    <a href="/tags/st表/" style="font-size: 10.079586419407121px;" class="tag-cloud-link">st表</a>
+    
+    <a href="/tags/二分/" style="font-size: 9.00389971901699px;" class="tag-cloud-link">二分</a>
+    
+    <a href="/tags/概率dp/" style="font-size: 9.673842659609658px;" class="tag-cloud-link">概率dp</a>
+    
+    <a href="/tags/状压dp/" style="font-size: 11.658575612894708px;" class="tag-cloud-link">状压dp</a>
+    
+    <a href="/tags/nim游戏/" style="font-size: 8.610916526885067px;" class="tag-cloud-link">nim游戏</a>
+    
+    <a href="/tags/sg函数/" style="font-size: 9.315110291828068px;" class="tag-cloud-link">sg函数</a>
+    
+    <a href="/tags/博弈论/" style="font-size: 10.572854505884411px;" class="tag-cloud-link">博弈论</a>
+    
+    <a href="/tags/暴力/" style="font-size: 17.11804064392188px;" class="tag-cloud-link">暴力</a>
+    
+    <a href="/tags/前缀和/" style="font-size: 9.2468029591995px;" class="tag-cloud-link">前缀和</a>
+    
+    <a href="/tags/思维/" style="font-size: 16.40367325392004px;" class="tag-cloud-link">思维</a>
+    
+    <a href="/tags/最大流/" style="font-size: 8.858864088122866px;" class="tag-cloud-link">最大流</a>
+    
+    <a href="/tags/最小割/" style="font-size: 17.82524842711826px;" class="tag-cloud-link">最小割</a>
+    
+    <a href="/tags/扩展欧几里得/" style="font-size: 19.866454230189923px;" class="tag-cloud-link">扩展欧几里得</a>
+    
+    <a href="/tags/floyd/" style="font-size: 9.28565368240429px;" class="tag-cloud-link">floyd</a>
+    
+    <a href="/tags/枚举/" style="font-size: 18.844750834399502px;" class="tag-cloud-link">枚举</a>
+    
+    <a href="/tags/bit/" style="font-size: 10.299527724261523px;" class="tag-cloud-link">bit</a>
+    
+    <a href="/tags/扫描线/" style="font-size: 14.828225775879009px;" class="tag-cloud-link">扫描线</a>
+    
+    <a href="/tags/离散化/" style="font-size: 16.15441155061735px;" class="tag-cloud-link">离散化</a>
+    
+    <a href="/tags/贪心/" style="font-size: 9.172919309817662px;" class="tag-cloud-link">贪心</a>
+    
+    <a href="/tags/欧拉函数/" style="font-size: 13.985570394219577px;" class="tag-cloud-link">欧拉函数</a>
+    
+    <a href="/tags/差分约束系统/" style="font-size: 15.205195647721101px;" class="tag-cloud-link">差分约束系统</a>
+    
+    <a href="/tags/线段树/" style="font-size: 15.14831090765454px;" class="tag-cloud-link">线段树</a>
+    
+    <a href="/tags/treap/" style="font-size: 8.871198770392862px;" class="tag-cloud-link">treap</a>
+    
+    <a href="/tags/打表/" style="font-size: 8.242697035097095px;" class="tag-cloud-link">打表</a>
+    
+    <a href="/tags/找规律/" style="font-size: 11.134420400695685px;" class="tag-cloud-link">找规律</a>
+    
+    <a href="/tags/树状数组/" style="font-size: 15.725230577826713px;" class="tag-cloud-link">树状数组</a>
+    
+    <a href="/tags/脑洞/" style="font-size: 9.570635433585668px;" class="tag-cloud-link">脑洞</a>
+    
+    <a href="/tags/构造/" style="font-size: 14.855903528043893px;" class="tag-cloud-link">构造</a>
+    
+    <a href="/tags/kmp/" style="font-size: 8.791236482246983px;" class="tag-cloud-link">kmp</a>
+    
+    <a href="/tags/模拟/" style="font-size: 9.110875726985888px;" class="tag-cloud-link">模拟</a>
+    
+    <a href="/tags/模板/" style="font-size: 18.549325077389963px;" class="tag-cloud-link">模板</a>
+    
+    <a href="/tags/尺取法/" style="font-size: 15.050832561455223px;" class="tag-cloud-link">尺取法</a>
+    
+    <a href="/tags/记忆化搜索/" style="font-size: 12.607712021935745px;" class="tag-cloud-link">记忆化搜索</a>
+    
+    <a href="/tags/优先队列/" style="font-size: 11.364015838836224px;" class="tag-cloud-link">优先队列</a>
+    
+    <a href="/tags/tarjan/" style="font-size: 11.882232851657236px;" class="tag-cloud-link">tarjan</a>
+    
+    <a href="/tags/缩点/" style="font-size: 11.755962334705927px;" class="tag-cloud-link">缩点</a>
+    
+    <a href="/tags/fft/" style="font-size: 9.448346164706905px;" class="tag-cloud-link">fft</a>
+    
+    <a href="/tags/HDU/" style="font-size: 13.016700207151839px;" class="tag-cloud-link">HDU</a>
+    
+    <a href="/tags/数学/" style="font-size: 8.795417680945038px;" class="tag-cloud-link">数学</a>
+    
+    <a href="/tags/可持久化线段树/" style="font-size: 10.584127871211788px;" class="tag-cloud-link">可持久化线段树</a>
+    
+    <a href="/tags/带权并查集/" style="font-size: 13.27530186254692px;" class="tag-cloud-link">带权并查集</a>
+    
+    <a href="/tags/二分图匹配/" style="font-size: 10.724426276007545px;" class="tag-cloud-link">二分图匹配</a>
+    
+    <a href="/tags/匈牙利算法/" style="font-size: 15.906206778251779px;" class="tag-cloud-link">匈牙利算法</a>
+    
+    <a href="/tags/SPOJ/" style="font-size: 12.562542058713943px;" class="tag-cloud-link">SPOJ</a>
+    
+    <a href="/tags/快速幂/" style="font-size: 9.685190527408725px;" class="tag-cloud-link">快速幂</a>
+    
+    <a href="/tags/组合数学/" style="font-size: 9.415139660319802px;" class="tag-cloud-link">组合数学</a>
+    
+    <a href="/tags/逆元/" style="font-size: 12.682375291833178px;" class="tag-cloud-link">逆元</a>
+    
+    <a href="/tags/codeforces/" style="font-size: 17.44316200597419px;" class="tag-cloud-link">codeforces</a>
+    
+    <a href="/tags/测试/" style="font-size: 9.13126372115929px;" class="tag-cloud-link">测试</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 csx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>

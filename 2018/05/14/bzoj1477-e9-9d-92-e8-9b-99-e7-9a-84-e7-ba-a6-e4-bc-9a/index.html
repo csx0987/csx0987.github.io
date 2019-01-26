@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="csx">
+    
+    
+    
+    
+    
+    
+    <title>BZOJ1477青蛙的约会 | csx的小博客</title>
+    <link href="”“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/csx.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head></html>
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">csx的小博客</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/未分类/">未分类</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/训练/">训练</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/工具/">工具</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/BZOJ/">BZOJ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/splay/">splay</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/数据结构/">数据结构</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">csx的小博客</a>
+        >
+        <span>BZOJ1477青蛙的约会</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/05/14/bzoj1477-e9-9d-92-e8-9b-99-e7-9a-84-e7-ba-a6-e4-bc-9a/">BZOJ1477青蛙的约会</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/BZOJ/">BZOJ</a>, 
+                
+                <a href="/tags/数论/">数论</a>, 
+                
+                <a href="/tags/扩展欧几里得/">扩展欧几里得</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-05-14
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/05/14/bzoj1477-e9-9d-92-e8-9b-99-e7-9a-84-e7-ba-a6-e4-bc-9a/">BZOJ1477青蛙的约会</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-05-14
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/BZOJ/">BZOJ</a>, 
+                
+                <a href="/tags/数论/">数论</a>, 
+                
+                <a href="/tags/扩展欧几里得/">扩展欧几里得</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>两只青蛙在网上相识了，它们聊得很开心，于是觉得很有必要见一面。它们很高兴地发现它们住在同一条纬度线上，于是它们约定各自朝西跳，直到碰面为止。可是它们出发之前忘记了一件很重要的事情，既没有问清楚对方的特征，也没有约定见面的具体位置。不过青蛙们都是很乐观的，它们觉得只要一直朝着某个方向跳下去，总能碰到对方的。但是除非这两只青蛙在同一时间跳到同一点上，不然是永远都不可能碰面的。为了帮助这两只乐观的青蛙，你被要求写一个程序来判断这两只青蛙是否能够碰面，会在什么时候碰面。 我们把这两只青蛙分别叫做青蛙A和青蛙B，并且规定纬度线上东经0度处为原点，由东往西为正方向，单位长度1米，这样我们就得到了一条首尾相接的数轴。设青蛙A的出发点坐标是x，青蛙B的出发点坐标是y。青蛙A一次能跳m米，青蛙B一次能跳n米，两只青蛙跳一次所花费的时间相同。纬度线总长L米。现在要你求出它们跳了几次以后才会碰面。</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>输入只包括一行5个整数x，y，m，n，L，其中x≠y &lt; 2000000000，0 &lt; m、n &lt; 2000000000，0 &lt; L &lt; 2100000000。</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>输出碰面所需要的跳跃次数，如果永远不可能碰面则输出一行”Impossible”</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><p>1 2 3 4 5</p>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>4</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>扩展欧几里得模版题。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"> </span><br><span class="line">ll x, y, m, n, L;</span><br><span class="line"> </span><br><span class="line"><span class="function">ll <span class="title">extend_gcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</span><br><span class="line">        x = <span class="number">1</span>; y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        ll r = extend_gcd(b, a % b, y, x);</span><br><span class="line">        y -= x * (a/b);</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//freopen("in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld%lld%lld"</span>, &amp;x, &amp;y, &amp;m, &amp;n, &amp;L);</span><br><span class="line">    ll a = (n-m), b = L, c = x - y, x, y;</span><br><span class="line">    ll d = extend_gcd(a, b, x, y);</span><br><span class="line">    <span class="keyword">if</span> (c % d) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Impossible\n"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x = x * c / d;</span><br><span class="line">        x = (x % b + b) % b;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            csx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/csx.png" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/21/Emacs学习day4/">Emacs学习day4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/20/Emacs学习day3/">Emacs学习day3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/19/codeforces2/">codeforces2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/18/Emacs学习day2/">Emacs学习day2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/codeforces1/">codeforces1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/格式测试/">一些格式测试</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/15/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/spoj-dquery/">SPOJ-DQUERY</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/03/hdu6278just-h-index/">HDU6278Just h-index</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/15/bzoj1491noi2007-e7-a4-be-e4-ba-a4-e7-bd-91-e7-bb-9c/">BZOJ1491[NOI2007]社交网络</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/29/bzoj1503noi2004-e9-83-81-e9-97-b7-e7-9a-84-e5-87-ba-e7-ba-b3-e5-91-98/">BZOJ1503[NOI2004]郁闷的出纳员</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/19/bzoj1821jsoi2010group-e9-83-a8-e8-90-bd-e5-88-92-e5-88-86-group/">BZOJ1821[JSOI2010]Group 部落划分 Group</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/14/bzoj2190sdoi2008-e4-bb-aa-e4-bb-97-e9-98-9f/">BZOJ2190[SDOI2008]仪仗队</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/16/bzoj2763jloi2011-e9-a3-9e-e8-a1-8c-e8-b7-af-e7-ba-bf/">BZOJ2763[JLOI2011]飞行路线</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/04/cf471-div2/">cf471 div2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/03/06/e5-bc-80-e5-a7-8b-e8-ae-b0-e5-bd-95-e5-8d-9a-e5-ae-a2-e5-95-a6/">开始记录博客啦</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/27/hdu1402a-b-problem-plus/">HDU1402A * B Problem Plus</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/16/codeforces1/">codeforces1</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2018/05/14/bzoj1477-e9-9d-92-e8-9b-99-e7-9a-84-e7-ba-a6-e4-bc-9a/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2018/05/14/bzoj1477-e9-9d-92-e8-9b-99-e7-9a-84-e7-ba-a6-e4-bc-9a/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2018/05/14/bzoj1477-e9-9d-92-e8-9b-99-e7-9a-84-e7-ba-a6-e4-bc-9a/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/BZOJ/" style="font-size: 9.486529297649572px;" class="tag-cloud-link">BZOJ</a>
+    
+    <a href="/tags/splay/" style="font-size: 15.857016952689108px;" class="tag-cloud-link">splay</a>
+    
+    <a href="/tags/数据结构/" style="font-size: 17.022560185571606px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/kruskal/" style="font-size: 18.460291446589242px;" class="tag-cloud-link">kruskal</a>
+    
+    <a href="/tags/mst/" style="font-size: 13.800404830042229px;" class="tag-cloud-link">mst</a>
+    
+    <a href="/tags/emacs/" style="font-size: 12.97021229370451px;" class="tag-cloud-link">emacs</a>
+    
+    <a href="/tags/dp/" style="font-size: 8.286162530506829px;" class="tag-cloud-link">dp</a>
+    
+    <a href="/tags/并查集/" style="font-size: 12.072480556286113px;" class="tag-cloud-link">并查集</a>
+    
+    <a href="/tags/离线处理/" style="font-size: 9.745235699640002px;" class="tag-cloud-link">离线处理</a>
+    
+    <a href="/tags/递推/" style="font-size: 13.256210727072585px;" class="tag-cloud-link">递推</a>
+    
+    <a href="/tags/高精度/" style="font-size: 8.010062598162964px;" class="tag-cloud-link">高精度</a>
+    
+    <a href="/tags/spfa/" style="font-size: 18.50114965910357px;" class="tag-cloud-link">spfa</a>
+    
+    <a href="/tags/区间dp/" style="font-size: 17.051928784844726px;" class="tag-cloud-link">区间dp</a>
+    
+    <a href="/tags/图论/" style="font-size: 15.445857610089103px;" class="tag-cloud-link">图论</a>
+    
+    <a href="/tags/二进制/" style="font-size: 14.993009338191035px;" class="tag-cloud-link">二进制</a>
+    
+    <a href="/tags/单调栈/" style="font-size: 8.823117026963832px;" class="tag-cloud-link">单调栈</a>
+    
+    <a href="/tags/计算几何/" style="font-size: 9.554371379031512px;" class="tag-cloud-link">计算几何</a>
+    
+    <a href="/tags/高斯消元/" style="font-size: 13.889736660636745px;" class="tag-cloud-link">高斯消元</a>
+    
+    <a href="/tags/dfs/" style="font-size: 17.407045734635687px;" class="tag-cloud-link">dfs</a>
+    
+    <a href="/tags/树形dp/" style="font-size: 12.694192410824439px;" class="tag-cloud-link">树形dp</a>
+    
+    <a href="/tags/数论/" style="font-size: 17.92477959211904px;" class="tag-cloud-link">数论</a>
+    
+    <a href="/tags/欧几里得算法/" style="font-size: 8.194265680146376px;" class="tag-cloud-link">欧几里得算法</a>
+    
+    <a href="/tags/bfs/" style="font-size: 9.030603510978139px;" class="tag-cloud-link">bfs</a>
+    
+    <a href="/tags/hash/" style="font-size: 8.39897954260838px;" class="tag-cloud-link">hash</a>
+    
+    <a href="/tags/最小费用流/" style="font-size: 19.770008098930727px;" class="tag-cloud-link">最小费用流</a>
+    
+    <a href="/tags/网络流/" style="font-size: 13.451056266634717px;" class="tag-cloud-link">网络流</a>
+    
+    <a href="/tags/dinic/" style="font-size: 13.235852141228609px;" class="tag-cloud-link">dinic</a>
+    
+    <a href="/tags/RMQ/" style="font-size: 17.52006108938261px;" class="tag-cloud-link">RMQ</a>
+    
+    <a href="/tags/st表/" style="font-size: 17.894918624687293px;" class="tag-cloud-link">st表</a>
+    
+    <a href="/tags/二分/" style="font-size: 11.224137937445713px;" class="tag-cloud-link">二分</a>
+    
+    <a href="/tags/概率dp/" style="font-size: 16.86730962965366px;" class="tag-cloud-link">概率dp</a>
+    
+    <a href="/tags/状压dp/" style="font-size: 15.764871229473776px;" class="tag-cloud-link">状压dp</a>
+    
+    <a href="/tags/nim游戏/" style="font-size: 18.717978509956357px;" class="tag-cloud-link">nim游戏</a>
+    
+    <a href="/tags/sg函数/" style="font-size: 19.749905490402597px;" class="tag-cloud-link">sg函数</a>
+    
+    <a href="/tags/博弈论/" style="font-size: 8.642623079516845px;" class="tag-cloud-link">博弈论</a>
+    
+    <a href="/tags/暴力/" style="font-size: 18.787508575247166px;" class="tag-cloud-link">暴力</a>
+    
+    <a href="/tags/前缀和/" style="font-size: 18.890955836365308px;" class="tag-cloud-link">前缀和</a>
+    
+    <a href="/tags/思维/" style="font-size: 10.65257398037372px;" class="tag-cloud-link">思维</a>
+    
+    <a href="/tags/最大流/" style="font-size: 11.226734568136198px;" class="tag-cloud-link">最大流</a>
+    
+    <a href="/tags/最小割/" style="font-size: 14.122267999332571px;" class="tag-cloud-link">最小割</a>
+    
+    <a href="/tags/扩展欧几里得/" style="font-size: 13.587271378785605px;" class="tag-cloud-link">扩展欧几里得</a>
+    
+    <a href="/tags/floyd/" style="font-size: 16.214012925912325px;" class="tag-cloud-link">floyd</a>
+    
+    <a href="/tags/枚举/" style="font-size: 19.562241662591312px;" class="tag-cloud-link">枚举</a>
+    
+    <a href="/tags/bit/" style="font-size: 13.604619237557213px;" class="tag-cloud-link">bit</a>
+    
+    <a href="/tags/扫描线/" style="font-size: 14.100745202709183px;" class="tag-cloud-link">扫描线</a>
+    
+    <a href="/tags/离散化/" style="font-size: 9.789001830169685px;" class="tag-cloud-link">离散化</a>
+    
+    <a href="/tags/贪心/" style="font-size: 12.606014134072932px;" class="tag-cloud-link">贪心</a>
+    
+    <a href="/tags/欧拉函数/" style="font-size: 19.1921698526887px;" class="tag-cloud-link">欧拉函数</a>
+    
+    <a href="/tags/差分约束系统/" style="font-size: 16.643769708076796px;" class="tag-cloud-link">差分约束系统</a>
+    
+    <a href="/tags/线段树/" style="font-size: 8.538516427535452px;" class="tag-cloud-link">线段树</a>
+    
+    <a href="/tags/treap/" style="font-size: 11.234299121003374px;" class="tag-cloud-link">treap</a>
+    
+    <a href="/tags/打表/" style="font-size: 12.566384122204887px;" class="tag-cloud-link">打表</a>
+    
+    <a href="/tags/找规律/" style="font-size: 8.575669050361086px;" class="tag-cloud-link">找规律</a>
+    
+    <a href="/tags/树状数组/" style="font-size: 14.962774448104284px;" class="tag-cloud-link">树状数组</a>
+    
+    <a href="/tags/脑洞/" style="font-size: 18.589084548585795px;" class="tag-cloud-link">脑洞</a>
+    
+    <a href="/tags/构造/" style="font-size: 10.53771565004644px;" class="tag-cloud-link">构造</a>
+    
+    <a href="/tags/kmp/" style="font-size: 11.44962491136355px;" class="tag-cloud-link">kmp</a>
+    
+    <a href="/tags/模拟/" style="font-size: 16.346890506824952px;" class="tag-cloud-link">模拟</a>
+    
+    <a href="/tags/模板/" style="font-size: 16.057279734574806px;" class="tag-cloud-link">模板</a>
+    
+    <a href="/tags/尺取法/" style="font-size: 18.82392135351038px;" class="tag-cloud-link">尺取法</a>
+    
+    <a href="/tags/记忆化搜索/" style="font-size: 12.59263444642049px;" class="tag-cloud-link">记忆化搜索</a>
+    
+    <a href="/tags/优先队列/" style="font-size: 18.980725279149752px;" class="tag-cloud-link">优先队列</a>
+    
+    <a href="/tags/tarjan/" style="font-size: 16.41399104402352px;" class="tag-cloud-link">tarjan</a>
+    
+    <a href="/tags/缩点/" style="font-size: 16.942323136422566px;" class="tag-cloud-link">缩点</a>
+    
+    <a href="/tags/fft/" style="font-size: 8.453397756629089px;" class="tag-cloud-link">fft</a>
+    
+    <a href="/tags/HDU/" style="font-size: 15.651295667288203px;" class="tag-cloud-link">HDU</a>
+    
+    <a href="/tags/数学/" style="font-size: 10.58714556450783px;" class="tag-cloud-link">数学</a>
+    
+    <a href="/tags/可持久化线段树/" style="font-size: 17.05224701735775px;" class="tag-cloud-link">可持久化线段树</a>
+    
+    <a href="/tags/带权并查集/" style="font-size: 16.426767330565262px;" class="tag-cloud-link">带权并查集</a>
+    
+    <a href="/tags/二分图匹配/" style="font-size: 14.29738842717247px;" class="tag-cloud-link">二分图匹配</a>
+    
+    <a href="/tags/匈牙利算法/" style="font-size: 16.800770059063566px;" class="tag-cloud-link">匈牙利算法</a>
+    
+    <a href="/tags/SPOJ/" style="font-size: 15.679841691974907px;" class="tag-cloud-link">SPOJ</a>
+    
+    <a href="/tags/快速幂/" style="font-size: 14.899330500839394px;" class="tag-cloud-link">快速幂</a>
+    
+    <a href="/tags/组合数学/" style="font-size: 16.709363269334226px;" class="tag-cloud-link">组合数学</a>
+    
+    <a href="/tags/逆元/" style="font-size: 11.90816043355035px;" class="tag-cloud-link">逆元</a>
+    
+    <a href="/tags/codeforces/" style="font-size: 14.03449439939778px;" class="tag-cloud-link">codeforces</a>
+    
+    <a href="/tags/测试/" style="font-size: 15.077957396618224px;" class="tag-cloud-link">测试</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 csx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>
