@@ -259,13 +259,7 @@
 <h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><p>2<br>2<br>0 0<br>0 1<br>3<br>0 0 1<br>0 1 0<br>1 0 0</p>
 <h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>No<br>Yes</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>无论是行交换还是列交换都不会改变同一行，同一列的黑点位置，所有要让题目有解只要每行每列都有黑点即可，题目就转换成列行列的二分图匹配问题，直接用匈牙利算法即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <iostream></iostream></h1><h1 id="include-1"><a href="#include-1" class="headerlink" title="include "></a>include <cstdio></cstdio></h1><h1 id="include-2"><a href="#include-2" class="headerlink" title="include "></a>include <cmath></cmath></h1><h1 id="include-3"><a href="#include-3" class="headerlink" title="include "></a>include <cstring></cstring></h1><h1 id="include-4"><a href="#include-4" class="headerlink" title="include "></a>include <algorithm></algorithm></h1><h1 id="include-5"><a href="#include-5" class="headerlink" title="include "></a>include <queue></queue></h1><h1 id="include-6"><a href="#include-6" class="headerlink" title="include "></a>include <map></map></h1><p>using namespace std;</p>
-<p>typedef long long ll;</p>
-<p>const int MAX_N = 1001;</p>
-<p>int T, n;<br>int mark[MAX_N][MAX_N];<br>int used[MAX_N], lk[MAX_N];</p>
-<p>bool find(int x) {<br>    for (int i = 1; i &lt;= n; i++) {<br>        if (mark[x][i] &amp;&amp; !used[i]) {<br>            used[i] = 1;<br>            if (lk[i] == 0 || find(lk[i])) {<br>                lk[i] = x;<br>                return true;<br>            }<br>        }<br>    }<br>    return false;<br>}</p>
-<p>void solve() {<br>    for (int i = 1; i &lt;= n; i++) {<br>        memset(used, 0, sizeof(used));<br>        if (!find(i)) {<br>            printf(“No\n”);<br>            return ;<br>        }<br>    }<br>    printf(“Yes\n”);<br>    return ;<br>}</p>
-<p>int main() {<br>    // freopen(“in.txt”, “r”, stdin);<br>    // freopen(“out.txt”, “w”, stdout);<br>    scanf(“%d”, &amp;T);<br>    while (T—) {<br>        memset(mark, 0, sizeof(mark));<br>        memset(lk, 0, sizeof(lk));<br>        scanf(“%d”, &amp;n);<br>        for (int i = 1; i &lt;= n; i++) {<br>            for (int j = 1; j &lt;= n; j++) {<br>                scanf(“%d”, &amp;mark[i][j]);<br>            }<br>        }<br>        solve();<br>    }<br>    return 0;<br>}</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_N = <span class="number">1001</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> T, n;</span><br><span class="line"><span class="keyword">int</span> mark[MAX_N][MAX_N];</span><br><span class="line"><span class="keyword">int</span> used[MAX_N], lk[MAX_N];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mark[x][i] &amp;&amp; !used[i]) &#123;</span><br><span class="line">            used[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (lk[i] == <span class="number">0</span> || find(lk[i])) &#123;</span><br><span class="line">                lk[i] = x;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="built_in">memset</span>(used, <span class="number">0</span>, <span class="keyword">sizeof</span>(used));</span><br><span class="line">        <span class="keyword">if</span> (!find(i)) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// freopen("in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">// freopen("out.txt", "w", stdout);</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">memset</span>(mark, <span class="number">0</span>, <span class="keyword">sizeof</span>(mark));</span><br><span class="line">        <span class="built_in">memset</span>(lk, <span class="number">0</span>, <span class="keyword">sizeof</span>(lk));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mark[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        solve();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 </article>
@@ -401,19 +395,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/12/bzoj1002-e8-bd-ae-e7-8a-b6-e7-97-85-e6-af-92/">BZOJ1002[FJOI]轮状病毒</a>
+                    <a href="/2019/01/16/Emacs学习day1/">Emacs学习day1</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/27/bzoj1007hnoi2008-e6-b0-b4-e5-b9-b3-e5-8f-af-e8-a7-81-e7-9b-b4-e7-ba-bf/">BZOJ1007[HNOI2008]水平可见直线</a>
+                    <a href="/2019/01/20/Emacs学习day3/">Emacs学习day3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/12/bzoj1188hnoi2007-e5-88-86-e8-a3-82-e6-b8-b8-e6-88-8f/">BZOJ1188[HNOI2007]分裂游戏</a>
+                    <a href="/2019/01/18/Emacs学习day2/">Emacs学习day2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/12/bjwc2008-e9-9b-b7-e6-b6-9b-e7-9a-84-e5-b0-8f-e7-8c-ab/">BZOJ1270[BJWc2008]雷涛的小猫</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/12/bzoj1003-e7-89-a9-e6-b5-81-e8-bf-90-e8-be-93/">BZOJ1003[ZJOI]物流运输</a>
                 </span>
             </li>
             
@@ -425,31 +431,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/30/bzoj1862zjoi2006gamez-e6-b8-b8-e6-88-8f-e6-8e-92-e5-90-8d-e7-b3-bb-e7-bb-9f/">BZOJ1862[Zjoi2006]GameZ游戏排名系统</a>
+                    <a href="/2018/05/08/bzoj2330scoi2011-e7-b3-96-e6-9e-9c/">BZOJ2330[SCOI2011]糖果</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/15/bzoj2424haoi2010-e8-ae-a2-e8-b4-a7/">BZOJ2424[HAOI2010]订货</a>
+                    <a href="/2018/04/13/haoi2006-e5-8f-97-e6-ac-a2-e8-bf-8e-e7-9a-84-e7-89-9b/">BZOJ1051[HAOI2006]受欢迎的牛</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/04/cf471-div2/">cf471 div2</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/03/06/e5-bc-80-e5-a7-8b-e8-ae-b0-e5-bd-95-e5-8d-9a-e5-ae-a2-e5-95-a6/">开始记录博客啦</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/04/13/hnoi2006-e8-b6-85-e7-ba-a7-e8-8b-b1-e9-9b-84hero/">BZOJ1191[HNOI2006]超级英雄Hero</a>
+                    <a href="/2018/06/03/spoj-dquery/">SPOJ-DQUERY</a>
                 </span>
             </li>
             
@@ -488,153 +482,153 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/BZOJ/" style="font-size: 8.43831510103038px;" class="tag-cloud-link">BZOJ</a>
+    <a href="/tags/BZOJ/" style="font-size: 13.624551539450957px;" class="tag-cloud-link">BZOJ</a>
     
-    <a href="/tags/splay/" style="font-size: 9.297308408504065px;" class="tag-cloud-link">splay</a>
+    <a href="/tags/splay/" style="font-size: 14.011308117188612px;" class="tag-cloud-link">splay</a>
     
-    <a href="/tags/数据结构/" style="font-size: 14.810256707393245px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 15.46427927034961px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/emacs/" style="font-size: 11.615038101361694px;" class="tag-cloud-link">emacs</a>
+    <a href="/tags/kruskal/" style="font-size: 16.908624856828368px;" class="tag-cloud-link">kruskal</a>
     
-    <a href="/tags/kruskal/" style="font-size: 13.581386235000824px;" class="tag-cloud-link">kruskal</a>
+    <a href="/tags/mst/" style="font-size: 18.136741495794357px;" class="tag-cloud-link">mst</a>
     
-    <a href="/tags/mst/" style="font-size: 19.97762653772968px;" class="tag-cloud-link">mst</a>
+    <a href="/tags/emacs/" style="font-size: 11.76301719563281px;" class="tag-cloud-link">emacs</a>
     
-    <a href="/tags/二进制/" style="font-size: 14.33280855048482px;" class="tag-cloud-link">二进制</a>
+    <a href="/tags/dp/" style="font-size: 15.390969450889292px;" class="tag-cloud-link">dp</a>
     
-    <a href="/tags/并查集/" style="font-size: 15.087936807496463px;" class="tag-cloud-link">并查集</a>
+    <a href="/tags/并查集/" style="font-size: 13.179445948669699px;" class="tag-cloud-link">并查集</a>
     
-    <a href="/tags/离线处理/" style="font-size: 9.146494651638474px;" class="tag-cloud-link">离线处理</a>
+    <a href="/tags/离线处理/" style="font-size: 13.963192479088118px;" class="tag-cloud-link">离线处理</a>
     
-    <a href="/tags/dp/" style="font-size: 9.014487899323381px;" class="tag-cloud-link">dp</a>
+    <a href="/tags/二进制/" style="font-size: 18.082481215112928px;" class="tag-cloud-link">二进制</a>
     
-    <a href="/tags/dfs/" style="font-size: 15.546338039949513px;" class="tag-cloud-link">dfs</a>
+    <a href="/tags/递推/" style="font-size: 11.542872572172987px;" class="tag-cloud-link">递推</a>
     
-    <a href="/tags/树形dp/" style="font-size: 19.874619323820045px;" class="tag-cloud-link">树形dp</a>
+    <a href="/tags/高精度/" style="font-size: 14.387333110050145px;" class="tag-cloud-link">高精度</a>
     
-    <a href="/tags/递推/" style="font-size: 12.653917280216294px;" class="tag-cloud-link">递推</a>
+    <a href="/tags/spfa/" style="font-size: 16.407148292610728px;" class="tag-cloud-link">spfa</a>
     
-    <a href="/tags/高精度/" style="font-size: 16.815215582351634px;" class="tag-cloud-link">高精度</a>
+    <a href="/tags/区间dp/" style="font-size: 19.575134940446176px;" class="tag-cloud-link">区间dp</a>
     
-    <a href="/tags/spfa/" style="font-size: 17.354259088571833px;" class="tag-cloud-link">spfa</a>
+    <a href="/tags/图论/" style="font-size: 11.927104201850902px;" class="tag-cloud-link">图论</a>
     
-    <a href="/tags/区间dp/" style="font-size: 10.745092599505927px;" class="tag-cloud-link">区间dp</a>
+    <a href="/tags/单调栈/" style="font-size: 12.087921146520342px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="/tags/图论/" style="font-size: 10.341670410357288px;" class="tag-cloud-link">图论</a>
+    <a href="/tags/计算几何/" style="font-size: 13.743883517135309px;" class="tag-cloud-link">计算几何</a>
     
-    <a href="/tags/单调栈/" style="font-size: 19.738772876010856px;" class="tag-cloud-link">单调栈</a>
+    <a href="/tags/高斯消元/" style="font-size: 18.401472513230196px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="/tags/计算几何/" style="font-size: 14.375518197465901px;" class="tag-cloud-link">计算几何</a>
+    <a href="/tags/dfs/" style="font-size: 10.256479771811456px;" class="tag-cloud-link">dfs</a>
     
-    <a href="/tags/高斯消元/" style="font-size: 14.519208457310903px;" class="tag-cloud-link">高斯消元</a>
+    <a href="/tags/树形dp/" style="font-size: 14.449268785765163px;" class="tag-cloud-link">树形dp</a>
     
-    <a href="/tags/数论/" style="font-size: 11.382172594947841px;" class="tag-cloud-link">数论</a>
+    <a href="/tags/数论/" style="font-size: 18.37145194932052px;" class="tag-cloud-link">数论</a>
     
-    <a href="/tags/欧几里得算法/" style="font-size: 9.335871190343948px;" class="tag-cloud-link">欧几里得算法</a>
+    <a href="/tags/欧几里得算法/" style="font-size: 11.404606272611122px;" class="tag-cloud-link">欧几里得算法</a>
     
-    <a href="/tags/dinic/" style="font-size: 19.38933487004647px;" class="tag-cloud-link">dinic</a>
+    <a href="/tags/bfs/" style="font-size: 14.91682246507735px;" class="tag-cloud-link">bfs</a>
     
-    <a href="/tags/网络流/" style="font-size: 12.231475174598128px;" class="tag-cloud-link">网络流</a>
+    <a href="/tags/hash/" style="font-size: 19.541992356291892px;" class="tag-cloud-link">hash</a>
     
-    <a href="/tags/RMQ/" style="font-size: 9.42907921797526px;" class="tag-cloud-link">RMQ</a>
+    <a href="/tags/最小费用流/" style="font-size: 13.56772249511771px;" class="tag-cloud-link">最小费用流</a>
     
-    <a href="/tags/st表/" style="font-size: 11.831518308591239px;" class="tag-cloud-link">st表</a>
+    <a href="/tags/网络流/" style="font-size: 19.699849360551735px;" class="tag-cloud-link">网络流</a>
     
-    <a href="/tags/二分/" style="font-size: 13.13308320979063px;" class="tag-cloud-link">二分</a>
+    <a href="/tags/dinic/" style="font-size: 14.422038158684344px;" class="tag-cloud-link">dinic</a>
     
-    <a href="/tags/概率dp/" style="font-size: 12.359560613347567px;" class="tag-cloud-link">概率dp</a>
+    <a href="/tags/RMQ/" style="font-size: 19.735997218233113px;" class="tag-cloud-link">RMQ</a>
     
-    <a href="/tags/状压dp/" style="font-size: 14.49136267518037px;" class="tag-cloud-link">状压dp</a>
+    <a href="/tags/st表/" style="font-size: 13.131026098480959px;" class="tag-cloud-link">st表</a>
     
-    <a href="/tags/bfs/" style="font-size: 11.214253188713347px;" class="tag-cloud-link">bfs</a>
+    <a href="/tags/二分/" style="font-size: 16.009477857451984px;" class="tag-cloud-link">二分</a>
     
-    <a href="/tags/hash/" style="font-size: 11.631044285975381px;" class="tag-cloud-link">hash</a>
+    <a href="/tags/概率dp/" style="font-size: 13.389495339663803px;" class="tag-cloud-link">概率dp</a>
     
-    <a href="/tags/最小费用流/" style="font-size: 14.824544684720845px;" class="tag-cloud-link">最小费用流</a>
+    <a href="/tags/状压dp/" style="font-size: 8.59664449714345px;" class="tag-cloud-link">状压dp</a>
     
-    <a href="/tags/记忆化搜索/" style="font-size: 17.405151584161338px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="/tags/记忆化搜索/" style="font-size: 10.686858340067289px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="/tags/nim游戏/" style="font-size: 16.981192949130165px;" class="tag-cloud-link">nim游戏</a>
+    <a href="/tags/暴力/" style="font-size: 8.18627345850856px;" class="tag-cloud-link">暴力</a>
     
-    <a href="/tags/sg函数/" style="font-size: 19.138671945943504px;" class="tag-cloud-link">sg函数</a>
+    <a href="/tags/nim游戏/" style="font-size: 17.163733423619988px;" class="tag-cloud-link">nim游戏</a>
     
-    <a href="/tags/博弈论/" style="font-size: 16.90872988922162px;" class="tag-cloud-link">博弈论</a>
+    <a href="/tags/sg函数/" style="font-size: 16.458017758951218px;" class="tag-cloud-link">sg函数</a>
     
-    <a href="/tags/扩展欧几里得/" style="font-size: 17.726336501423106px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="/tags/博弈论/" style="font-size: 14.587171114172035px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="/tags/暴力/" style="font-size: 16.16693919543782px;" class="tag-cloud-link">暴力</a>
+    <a href="/tags/最大流/" style="font-size: 10.579394377317392px;" class="tag-cloud-link">最大流</a>
     
-    <a href="/tags/前缀和/" style="font-size: 14.825063517909783px;" class="tag-cloud-link">前缀和</a>
+    <a href="/tags/最小割/" style="font-size: 8.052273851812675px;" class="tag-cloud-link">最小割</a>
     
-    <a href="/tags/思维/" style="font-size: 17.431701713434485px;" class="tag-cloud-link">思维</a>
+    <a href="/tags/floyd/" style="font-size: 15.621607988419708px;" class="tag-cloud-link">floyd</a>
     
-    <a href="/tags/最大流/" style="font-size: 10.330316019218813px;" class="tag-cloud-link">最大流</a>
+    <a href="/tags/枚举/" style="font-size: 14.922479715422682px;" class="tag-cloud-link">枚举</a>
     
-    <a href="/tags/bit/" style="font-size: 13.5887219337352px;" class="tag-cloud-link">bit</a>
+    <a href="/tags/扩展欧几里得/" style="font-size: 10.871185068137315px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="/tags/扫描线/" style="font-size: 17.20900697419506px;" class="tag-cloud-link">扫描线</a>
+    <a href="/tags/bit/" style="font-size: 12.680258514540416px;" class="tag-cloud-link">bit</a>
     
-    <a href="/tags/离散化/" style="font-size: 16.160503809103393px;" class="tag-cloud-link">离散化</a>
+    <a href="/tags/扫描线/" style="font-size: 14.840108760882615px;" class="tag-cloud-link">扫描线</a>
     
-    <a href="/tags/最小割/" style="font-size: 11.225964061353203px;" class="tag-cloud-link">最小割</a>
+    <a href="/tags/离散化/" style="font-size: 13.968294576582469px;" class="tag-cloud-link">离散化</a>
     
-    <a href="/tags/贪心/" style="font-size: 8.949195150254202px;" class="tag-cloud-link">贪心</a>
+    <a href="/tags/贪心/" style="font-size: 11.325940115474516px;" class="tag-cloud-link">贪心</a>
     
-    <a href="/tags/欧拉函数/" style="font-size: 9.938503835079203px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="/tags/欧拉函数/" style="font-size: 12.874112894277427px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="/tags/差分约束系统/" style="font-size: 11.971210386328263px;" class="tag-cloud-link">差分约束系统</a>
+    <a href="/tags/差分约束系统/" style="font-size: 17.395726173502364px;" class="tag-cloud-link">差分约束系统</a>
     
-    <a href="/tags/treap/" style="font-size: 18.32818888793963px;" class="tag-cloud-link">treap</a>
+    <a href="/tags/treap/" style="font-size: 8.930687637983478px;" class="tag-cloud-link">treap</a>
     
-    <a href="/tags/线段树/" style="font-size: 16.023669990706242px;" class="tag-cloud-link">线段树</a>
+    <a href="/tags/线段树/" style="font-size: 15.102363328664293px;" class="tag-cloud-link">线段树</a>
     
-    <a href="/tags/树状数组/" style="font-size: 11.745162758311256px;" class="tag-cloud-link">树状数组</a>
+    <a href="/tags/前缀和/" style="font-size: 15.553002197932049px;" class="tag-cloud-link">前缀和</a>
     
-    <a href="/tags/floyd/" style="font-size: 18.062827412762953px;" class="tag-cloud-link">floyd</a>
+    <a href="/tags/思维/" style="font-size: 14.913941944044527px;" class="tag-cloud-link">思维</a>
     
-    <a href="/tags/枚举/" style="font-size: 8.985285602240761px;" class="tag-cloud-link">枚举</a>
+    <a href="/tags/树状数组/" style="font-size: 12.280008768381382px;" class="tag-cloud-link">树状数组</a>
     
-    <a href="/tags/打表/" style="font-size: 16.42871582230082px;" class="tag-cloud-link">打表</a>
+    <a href="/tags/构造/" style="font-size: 8.859257146868726px;" class="tag-cloud-link">构造</a>
     
-    <a href="/tags/找规律/" style="font-size: 14.562148047189792px;" class="tag-cloud-link">找规律</a>
+    <a href="/tags/找规律/" style="font-size: 17.860411026366442px;" class="tag-cloud-link">找规律</a>
     
-    <a href="/tags/脑洞/" style="font-size: 13.915410490115452px;" class="tag-cloud-link">脑洞</a>
+    <a href="/tags/codeforces/" style="font-size: 9.435436956453874px;" class="tag-cloud-link">codeforces</a>
     
-    <a href="/tags/构造/" style="font-size: 14.06211488228897px;" class="tag-cloud-link">构造</a>
+    <a href="/tags/数学/" style="font-size: 19.388226288716098px;" class="tag-cloud-link">数学</a>
     
-    <a href="/tags/tarjan/" style="font-size: 18.912798564091226px;" class="tag-cloud-link">tarjan</a>
+    <a href="/tags/模拟/" style="font-size: 13.33728612232757px;" class="tag-cloud-link">模拟</a>
     
-    <a href="/tags/缩点/" style="font-size: 9.09790397941467px;" class="tag-cloud-link">缩点</a>
+    <a href="/tags/打表/" style="font-size: 10.033995939258697px;" class="tag-cloud-link">打表</a>
     
-    <a href="/tags/codeforces/" style="font-size: 12.970198721204703px;" class="tag-cloud-link">codeforces</a>
+    <a href="/tags/脑洞/" style="font-size: 13.037485632460594px;" class="tag-cloud-link">脑洞</a>
     
-    <a href="/tags/数学/" style="font-size: 13.839684203396297px;" class="tag-cloud-link">数学</a>
+    <a href="/tags/kmp/" style="font-size: 19.75113709535978px;" class="tag-cloud-link">kmp</a>
     
-    <a href="/tags/模拟/" style="font-size: 19.85803187198392px;" class="tag-cloud-link">模拟</a>
+    <a href="/tags/tarjan/" style="font-size: 8.239720060728338px;" class="tag-cloud-link">tarjan</a>
     
-    <a href="/tags/HDU/" style="font-size: 9.57086950131815px;" class="tag-cloud-link">HDU</a>
+    <a href="/tags/缩点/" style="font-size: 11.305220701939492px;" class="tag-cloud-link">缩点</a>
     
-    <a href="/tags/可持久化线段树/" style="font-size: 9.696327684383782px;" class="tag-cloud-link">可持久化线段树</a>
+    <a href="/tags/fft/" style="font-size: 8.79518815598692px;" class="tag-cloud-link">fft</a>
     
-    <a href="/tags/kmp/" style="font-size: 15.165631757111042px;" class="tag-cloud-link">kmp</a>
+    <a href="/tags/HDU/" style="font-size: 11.001909027090452px;" class="tag-cloud-link">HDU</a>
     
-    <a href="/tags/带权并查集/" style="font-size: 10.186149613055637px;" class="tag-cloud-link">带权并查集</a>
+    <a href="/tags/可持久化线段树/" style="font-size: 13.776647382801425px;" class="tag-cloud-link">可持久化线段树</a>
     
-    <a href="/tags/快速幂/" style="font-size: 17.879332943471788px;" class="tag-cloud-link">快速幂</a>
+    <a href="/tags/带权并查集/" style="font-size: 14.415779581281107px;" class="tag-cloud-link">带权并查集</a>
     
-    <a href="/tags/组合数学/" style="font-size: 18.43017210547199px;" class="tag-cloud-link">组合数学</a>
+    <a href="/tags/SPOJ/" style="font-size: 8.136873065016925px;" class="tag-cloud-link">SPOJ</a>
     
-    <a href="/tags/逆元/" style="font-size: 13.58791476064948px;" class="tag-cloud-link">逆元</a>
+    <a href="/tags/二分图匹配/" style="font-size: 14.569053076914503px;" class="tag-cloud-link">二分图匹配</a>
     
-    <a href="/tags/二分图匹配/" style="font-size: 16.137960795102963px;" class="tag-cloud-link">二分图匹配</a>
+    <a href="/tags/匈牙利算法/" style="font-size: 11.278507996438652px;" class="tag-cloud-link">匈牙利算法</a>
     
-    <a href="/tags/匈牙利算法/" style="font-size: 8.466978734571335px;" class="tag-cloud-link">匈牙利算法</a>
+    <a href="/tags/快速幂/" style="font-size: 8.92426154856669px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="/tags/SPOJ/" style="font-size: 15.614318821760236px;" class="tag-cloud-link">SPOJ</a>
+    <a href="/tags/组合数学/" style="font-size: 15.515236129966382px;" class="tag-cloud-link">组合数学</a>
     
-    <a href="/tags/fft/" style="font-size: 8.122844257592758px;" class="tag-cloud-link">fft</a>
+    <a href="/tags/逆元/" style="font-size: 17.665279746669015px;" class="tag-cloud-link">逆元</a>
     
-    <a href="/tags/测试/" style="font-size: 18.301289847057234px;" class="tag-cloud-link">测试</a>
+    <a href="/tags/测试/" style="font-size: 9.367348556048753px;" class="tag-cloud-link">测试</a>
     
 </div>
                 
